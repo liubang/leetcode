@@ -1,0 +1,34 @@
+---
+name: main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "^1.16.0"
+      - uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 10
+          platform: x64
+      - uses: actions/cache@v2
+        env:
+          cache-name: bazel
+        with:
+          path: ~/.cache/bazelisk
+          key: ${{ env.cache-name }}-${{ runner.os }}
+          restore-keys: |
+            ${{ env.cache-name }}-${{ runner.os }}
+      - run: go get github.com/bazelbuild/bazelisk
+      - name: run build
+        run: |
+          bazelisk test //...
