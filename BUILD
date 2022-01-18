@@ -11,7 +11,7 @@ package(default_visibility = ["//visibility:public"])
         ]),
         copts = [
             "-std=gnu++17",
-            "-w",
+            "-fno-omit-frame-pointer",
         ],
         deps = [
             "@com_google_googletest//:gtest_main",
