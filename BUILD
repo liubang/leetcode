@@ -12,6 +12,10 @@ package(default_visibility = ["//visibility:public"])
         copts = [
             "-std=gnu++17",
             "-fno-omit-frame-pointer",
+            "-fsanitize=address",
+        ],
+        linkopts = [
+            "-fsanitize=address",
         ],
         deps = [
             "@com_google_googletest//:gtest_main",
