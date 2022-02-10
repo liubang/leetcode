@@ -9,14 +9,7 @@ class Trie {
  public:
   Trie() { head_ = new Node(); }
 
-  ~Trie() {
-    std::function<void(Node*)> destroy = [&](Node* node) {
-      for (Node* n : node->nodes) {
-        destroy(n);
-      }
-      delete node;
-    };
-  }
+  ~Trie() { destroy(head_); }
 
   void insert(const std::string& word) {
     auto cur = head_;
@@ -64,6 +57,15 @@ class Trie {
     }
   };
   Node* head_;
+
+ private:
+  void destroy(Node* node) {
+    if (!node) return;
+    for (Node* n : node->nodes) {
+      destroy(n);
+    }
+    delete node;
+  }
 };
 }  // namespace
 

@@ -2,15 +2,11 @@
 
 #include <vector>
 
-namespace {
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "include/list.h"
 
+using ListNode = leetcode::list::ListNode;
+
+namespace {
 class Solution {
  public:
   ListNode* rotateRight(ListNode* head, int k) {
@@ -47,25 +43,15 @@ class Solution {
 
 TEST(Leetcode, rotate_list) {
   Solution s;
-  ListNode* node = new ListNode(
-      1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-
-  {
-    ListNode* ret = s.rotateRight(node, 2);
-    std::vector<int> exp = {4, 5, 1, 2, 3};
-    ListNode* cur = ret;
-    int i = 0;
-    while (cur) {
-      EXPECT_EQ(exp[i], cur->val);
-      cur = cur->next;
-      i++;
-    }
-  }
-
-  ListNode* cur = node;
+  ListNode* node = leetcode::list::create({1, 2, 3, 4, 5});
+  ListNode* ret = s.rotateRight(node, 2);
+  std::vector<int> exp = {4, 5, 1, 2, 3};
+  ListNode* cur = ret;
+  int i = 0;
   while (cur) {
-    ListNode* tmp = cur;
+    EXPECT_EQ(exp[i], cur->val);
     cur = cur->next;
-    delete tmp;
+    i++;
   }
+  leetcode::list::destroy(ret);
 }

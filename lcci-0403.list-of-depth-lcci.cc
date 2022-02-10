@@ -2,20 +2,13 @@
 
 #include <vector>
 
+#include "include/list.h"
+#include "include/tree.h"
+
+using leetcode::list::ListNode;
+using leetcode::tree::TreeNode;
+
 namespace {
-struct TreeNode {
-  int val;
-  TreeNode* left;
-  TreeNode* right;
-  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode(int x) : val(x), next(NULL) {}
-};
-
 class Solution {
  public:
   std::vector<ListNode*> listOfDepth(TreeNode* tree) {
@@ -46,13 +39,8 @@ class Solution {
 
 TEST(Leetcode, list_of_depth_lcci) {
   Solution s;
-  TreeNode* tree = new TreeNode(1);
-  tree->left = new TreeNode(2);
-  tree->right = new TreeNode(3);
-  tree->left->left = new TreeNode(4);
-  tree->left->right = new TreeNode(5);
-  tree->right->right = new TreeNode(7);
-  tree->left->left->left = new TreeNode(8);
+  TreeNode* tree =
+      leetcode::tree::create({"1", "2", "3", "4", "5", "null", "7", "8"});
   auto ret = s.listOfDepth(tree);
   std::vector<std::vector<int>> exp = {{1}, {2, 3}, {4, 5, 7}, {8}};
   EXPECT_EQ(ret.size(), exp.size());
@@ -65,5 +53,9 @@ TEST(Leetcode, list_of_depth_lcci) {
       c++;
     }
   }
-  // destroy...
+
+  leetcode::tree::destroy(tree);
+  for (auto* list : ret) {
+    leetcode::list::destroy(list);
+  }
 }
