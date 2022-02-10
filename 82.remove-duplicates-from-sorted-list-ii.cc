@@ -26,7 +26,9 @@ class Solution {
         cur = cur->next;
       }
     }
-    return dummy->next;
+    ListNode* ret = dummy->next;
+    delete dummy;
+    return ret;
   }
 };
 }  // namespace
