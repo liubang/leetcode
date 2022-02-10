@@ -2,14 +2,11 @@
 
 #include <vector>
 
+#include "include/list.h"
+
+using ListNode = leetcode::list::ListNode;
+
 namespace {
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
 
 class Solution {
  public:
@@ -39,19 +36,9 @@ TEST(Leetcode, remove_duplicates_from_sorted_list_ii) {
   {
     // 1,2,3,3,4,4,5
     std::vector<int> input = {1, 2, 3, 3, 4, 4, 5};
-    ListNode* head = new ListNode(input[0]);
-    ListNode* c = head;
-    for (int i = 1; i < input.size(); ++i) {
-      c->next = new ListNode(input[i]);
-      c = c->next;
-    }
+    ListNode* head = leetcode::list::create(input);
     std::vector<int> output = {1, 2, 5};
-    ListNode* exp = new ListNode(1);
-    ListNode* e = exp;
-    for (int i = 1; i < output.size(); ++i) {
-      e->next = new ListNode(output[i]);
-      e = e->next;
-    }
+    ListNode* exp = leetcode::list::create(output);
     ListNode* ret = s.deleteDuplicates(head);
     ListNode* cur = ret;
     ListNode* cure = exp;
@@ -60,19 +47,16 @@ TEST(Leetcode, remove_duplicates_from_sorted_list_ii) {
       cur = cur->next;
       cure = cure->next;
     }
+
+    leetcode::list::destroy(exp);
+    leetcode::list::destroy(ret);
   }
 
   {
     // 1,1,1,2,3
     std::vector<int> input = {1, 1, 1, 2, 3};
-    ListNode* head = new ListNode(input[0]);
-    ListNode* h = head;
-    for (int i = 1; i < input.size(); ++i) {
-      h->next = new ListNode(input[i]);
-      h = h->next;
-    }
-
-    ListNode* exp = new ListNode(2, new ListNode(3));
+    ListNode* head = leetcode::list::create(input);
+    ListNode* exp = leetcode::list::create({2, 3});
     ListNode* ret = s.deleteDuplicates(head);
 
     ListNode* cur = ret;
@@ -82,5 +66,8 @@ TEST(Leetcode, remove_duplicates_from_sorted_list_ii) {
       cur = cur->next;
       cure = cure->next;
     }
+
+    leetcode::list::destroy(exp);
+    leetcode::list::destroy(ret);
   }
 }
