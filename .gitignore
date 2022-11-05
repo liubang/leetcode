@@ -35,3 +35,4 @@ bazel-bin
 bazel-leetcode
 bazel-out
 bazel-testlogs
+compile_commands.json

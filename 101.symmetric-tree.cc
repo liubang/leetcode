@@ -10,14 +10,17 @@ class Solution {
  public:
   using TreeNode = leetcode::tree::TreeNode;
   bool isSymmetric(TreeNode* root) {
-    if (!root) return false;
+    if (!root)
+      return false;
     return ismirror(root->left, root->right);
   }
 
  private:
   bool ismirror(TreeNode* l, TreeNode* r) {
-    if (!l && !r) return true;
-    if ((!l || !r) || (l->val != r->val)) return false;
+    if (!l && !r)
+      return true;
+    if ((!l || !r) || (l->val != r->val))
+      return false;
     return ismirror(l->left, r->right) && ismirror(l->right, r->left);
   }
 };

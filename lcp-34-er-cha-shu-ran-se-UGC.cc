@@ -16,7 +16,8 @@ class Solution {
  private:
   std::vector<int> dfs(TreeNode* root, int k) {
     std::vector<int> dp(k + 1, 0);
-    if (!root) return dp;
+    if (!root)
+      return dp;
     auto l = dfs(root->left, k);
     auto r = dfs(root->right, k);
     dp[0] = *std::max_element(l.begin(), l.end()) +

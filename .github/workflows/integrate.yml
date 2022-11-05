@@ -11,23 +11,23 @@ on:
 jobs:
   matrix:
     name: "GCC"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         GCC: [8, 9, 10, 11]
         PLATFORM: ["x64"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
-          go-version: "^1.17.0"
+          go-version: "^1.19.0"
       - uses: egor-tensin/setup-gcc@v1
         with:
           version: ${{ matrix.GCC }}
           platform: ${{ matrix.PLATFORM }}
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         env:
           cache-name: bazel
         with:
