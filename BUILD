@@ -13,6 +13,7 @@ package(default_visibility = ["//visibility:public"])
             "-std=gnu++17",
             "-fno-omit-frame-pointer",
             "-fsanitize=address",
+            "-Iinclude",
         ],
         linkopts = [
             "-fsanitize=address",
@@ -21,5 +22,5 @@ package(default_visibility = ["//visibility:public"])
             "@com_google_googletest//:gtest_main",
         ],
     )
-    for f in glob(["*.cc"])
+    for f in glob(["src/*.cc"])
 ]
