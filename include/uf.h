@@ -22,9 +22,9 @@ class UnionFind {
   }
 
   // 将 p 和 q  连接
-  void unionn(int p, int q) {
-    int pRoot = findRoot(p);
-    int qRoot = findRoot(q);
+  void unite(int p, int q) {
+    int pRoot = find(p);
+    int qRoot = find(q);
     if (pRoot == qRoot) {
       return;
     }
@@ -43,8 +43,8 @@ class UnionFind {
 
   // 判断 p 和 q  是否连通
   bool connected(int p, int q) {
-    int pRoot = findRoot(p);
-    int qRoot = findRoot(q);
+    int pRoot = find(p);
+    int qRoot = find(q);
     return pRoot == qRoot;
   }
 
@@ -61,12 +61,11 @@ class UnionFind {
     return ret;
   }
 
- private:
   // 返回当前节点的根
-  int findRoot(int p) {
+  int find(int p) {
     // 路径压缩
     if (p != parent_[p]) {
-      parent_[p] = findRoot(parent_[p]);
+      parent_[p] = find(parent_[p]);
     }
 
     return parent_[p];

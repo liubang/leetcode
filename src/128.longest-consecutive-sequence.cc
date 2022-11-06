@@ -42,11 +42,11 @@ class Solution2 {
       }
 
       if (map.find(nums[i] - 1) != map.end()) {
-        uf.unionn(i, map[nums[i] - 1]);
+        uf.unite(i, map[nums[i] - 1]);
       }
 
       if (map.find(nums[i] + 1) != map.end()) {
-        uf.unionn(i, map[nums[i] + 1]);
+        uf.unite(i, map[nums[i] + 1]);
       }
 
       map[nums[i]] = i;
