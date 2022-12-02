@@ -30,5 +30,5 @@ bazel coverage -s \
     --combined_report=lcov \
     //...
 
-genhtml --output genhtml "$(bazel info output_path)/_coverage/_coverage_report.dat"
+genhtml --output report "$(bazel info output_path)/_coverage/_coverage_report.dat"
 ```
