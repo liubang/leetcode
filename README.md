@@ -32,3 +32,5 @@ bazel coverage -s \
 
 genhtml --output report "$(bazel info output_path)/_coverage/_coverage_report.dat"
 ```
+
+[There is the code coverage report](https://liubang.github.io/leetcode/src/index.html)
