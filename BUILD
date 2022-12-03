@@ -3,7 +3,7 @@ package(default_visibility = ["//visibility:public"])
 
 [
     cc_test(
-        name = "%s" % f[0:f.rfind(".")],
+        name = "%s" % f[4:f.rfind(".")],
         srcs = [
             "%s" % f,
         ] + glob([
