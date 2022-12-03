@@ -6,6 +6,8 @@ on:
     paths:
       - "src/**"
       - "include/**"
+      - "BUILD"
+      - "WORKSPACE"
   pull_request:
     branches:
       - main
