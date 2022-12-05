@@ -10,7 +10,7 @@ package(default_visibility = ["//visibility:public"])
             "include/*.h",
         ]),
         copts = [
-            "-std=gnu++17",
+            "-std=c++17",
             "-fno-omit-frame-pointer",
             "-fsanitize=address",
             "-Iinclude",
