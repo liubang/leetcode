@@ -2,7 +2,7 @@
 
 <div align="center"><p>
     <a href="https://github.com/liubang/leetcode/actions">
-        <img src="https://img.shields.io/github/workflow/status/liubang/leetcode/integrate?style=flat-square" alt="Build" />
+        <img src="https://img.shields.io/github/actions/workflow/status/liubang/leetcode/integrate.yml?style=flat-square&branch=main" alt="Build"/>
     </a>
     <a href="https://github.com/liubang/leetcode/blob/main/LICENSE">
         <img src="https://img.shields.io/github/license/liubang/leetcode?style=flat-square&logo=MIT&label=License" alt="License"/>
