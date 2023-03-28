@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <cstring>
-#include <functional>
 #include <string>
 
 namespace {
@@ -60,7 +59,8 @@ class Trie {
 
  private:
   void destroy(Node* node) {
-    if (!node) return;
+    if (!node)
+      return;
     for (Node* n : node->nodes) {
       destroy(n);
     }

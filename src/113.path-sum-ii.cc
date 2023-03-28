@@ -8,16 +8,6 @@ using TreeNode = leetcode::tree::TreeNode;
 
 namespace {
 
-// struct TreeNode {
-//   int val;
-//   TreeNode* left;
-//   TreeNode* right;
-//   TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//   TreeNode(int x, TreeNode* left, TreeNode* right)
-//       : val(x), left(left), right(right) {}
-// };
-
 class Solution {
  public:
   std::vector<std::vector<int>> pathSum(TreeNode* root, int targetSum) {
@@ -51,8 +41,9 @@ class Solution {
 TEST(Leetcode, path_sum_ii) {
   Solution s;
   {
-    TreeNode* root = leetcode::tree::create(
-        {"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "5", "1"});
+    TreeNode* root =
+        leetcode::tree::create({"5", "4", "8", "11", "null", "13", "4", "7",
+                                "2", "null", "null", "5", "1"});
     std::vector<std::vector<int>> exp = {{5, 4, 11, 2}, {5, 8, 4, 5}};
     auto ret = s.pathSum(root, 22);
     EXPECT_EQ(exp, ret);

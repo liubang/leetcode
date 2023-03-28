@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "include/list.h"
+#include "list.h"
 
 using leetcode::list::ListNode;
 

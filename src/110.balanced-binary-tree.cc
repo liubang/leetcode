@@ -1,18 +1,10 @@
 #include <gtest/gtest.h>
 
-#include <functional>
+#include "tree.h"
+
+using leetcode::tree::TreeNode;
 
 namespace {
-struct TreeNode {
-  int val;
-  TreeNode* left;
-  TreeNode* right;
-  TreeNode() : val(0), left(nullptr), right(nullptr) {}
-  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
-      : val(x), left(left), right(right) {}
-};
-
 class Solution {
  public:
   bool isBalanced(TreeNode* root) {
@@ -39,32 +31,22 @@ class Solution {
 
 TEST(Leetcode, balanced_binary_tree) {
   Solution s;
-  using DestroyType = std::function<void(TreeNode*)>;
-  DestroyType destroy = [&](TreeNode* root) {
-    if (!root) {
-      return;
-    }
-    destroy(root->left);
-    destroy(root->right);
-    delete root;
-  };
-
   {
-    TreeNode* root =
+    auto* root =
         new TreeNode(3, new TreeNode(9),
                      new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 
     EXPECT_TRUE(s.isBalanced(root));
-    destroy(root);
+    leetcode::tree::destroy(root);
   }
 
   {
-    TreeNode* root = new TreeNode(
+    auto* root = new TreeNode(
         1,
         new TreeNode(2, new TreeNode(3, new TreeNode(4), new TreeNode(4)),
                      new TreeNode(3)),
         new TreeNode(2));
     EXPECT_FALSE(s.isBalanced(root));
-    destroy(root);
+    leetcode::tree::destroy(root);
   }
 }
