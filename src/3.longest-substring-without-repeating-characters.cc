@@ -2,6 +2,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace {
 class Solution {
@@ -24,6 +25,22 @@ class Solution {
     }
     return ret;
   }
+
+  // 这种方法根上面的差不多，但是更简洁一些
+  int lengthOfLongestSubstring2(const std::string& s) {
+    int ret = 0;
+    int left = 0;
+    std::unordered_set<char> lookup;
+    for (int i = 0; i < s.length(); ++i) {
+      while (lookup.find(s[i]) != lookup.end()) {
+        lookup.erase(s[left]);
+        left++;
+      }
+      ret = std::max(ret, i - left + 1);
+      lookup.insert(s[i]);
+    }
+    return ret;
+  }
 };
 }  // namespace
 
@@ -33,4 +50,9 @@ TEST(Leetcode, longest_substring_without_repeating_characters) {
   EXPECT_EQ(1, s.lengthOfLongestSubstring("bbbbbbbb"));
   EXPECT_EQ(26,
             s.lengthOfLongestSubstring("abcdadbdqwertyuioplkjhgfdsazxcvbnm"));
+
+  EXPECT_EQ(3, s.lengthOfLongestSubstring2("abcabcbb"));
+  EXPECT_EQ(1, s.lengthOfLongestSubstring2("bbbbbbbb"));
+  EXPECT_EQ(26,
+            s.lengthOfLongestSubstring2("abcdadbdqwertyuioplkjhgfdsazxcvbnm"));
 }
