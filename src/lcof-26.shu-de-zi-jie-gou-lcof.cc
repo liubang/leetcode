@@ -1,17 +1,10 @@
 #include <gtest/gtest.h>
 
-#include <functional>
+#include "tree.h"
+
+using leetcode::tree::TreeNode;
 
 namespace {
-struct TreeNode {
-  int val;
-  TreeNode* left;
-  TreeNode* right;
-  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
-      : val(x), left(left), right(right) {}
-};
-
 class Solution {
  public:
   bool isSubStructure(TreeNode* A, TreeNode* B) {
@@ -43,16 +36,7 @@ class Solution {
 
 TEST(Leetcode, shu_de_zi_jie_gou_lcof) {
   Solution s;
-  using DestroyType = std::function<void(TreeNode*)>;
-
-  DestroyType destroy = [&](TreeNode* node) {
-    if (!node) {
-      return;
-    }
-    destroy(node->left);
-    destroy(node->right);
-    delete node;
-  };
+  using leetcode::tree::destroy;
 
   /*
    *     3
@@ -62,11 +46,11 @@ TEST(Leetcode, shu_de_zi_jie_gou_lcof) {
    * 1   2
    *
    */
-  TreeNode* root = new TreeNode(
+  auto* root = new TreeNode(
       3, new TreeNode(4, new TreeNode(1), new TreeNode(2)), new TreeNode(5));
 
-  TreeNode* sub = new TreeNode(3, new TreeNode(4), nullptr);
-  TreeNode* notsub = new TreeNode(3, new TreeNode(1), nullptr);
+  auto* sub = new TreeNode(3, new TreeNode(4), nullptr);
+  auto* notsub = new TreeNode(3, new TreeNode(1), nullptr);
 
   EXPECT_TRUE(s.isSubStructure(root, sub));
   EXPECT_FALSE(s.isSubStructure(root, notsub));

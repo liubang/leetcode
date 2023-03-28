@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <climits>
-#include <functional>
 #include <string>
 #include <vector>
 
