@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-27 16:55:48</td>
+            <td class="headerValue">2023-03-28 05:46:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -73,17 +73,17 @@
 <a name="11"><span class="lineNum">      11 </span>            :   int val;</a>
 <a name="12"><span class="lineNum">      12 </span>            :   TreeNode *left;</a>
 <a name="13"><span class="lineNum">      13 </span>            :   TreeNode *right;</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">        232 :   TreeNode(int x, TreeNode *left = nullptr, TreeNode *right = nullptr)</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">        232 :       : val(x), left(left), right(right) {}</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">        273 :   TreeNode(int x, TreeNode *left = nullptr, TreeNode *right = nullptr)</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">        273 :       : val(x), left(left), right(right) {}</span></a>
 <a name="16"><span class="lineNum">      16 </span>            : };</a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        507 : void destroy(TreeNode *node) {</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">        507 :   if (!node) {</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        275 :     return;</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        598 : void destroy(TreeNode *node) {</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">        598 :   if (!node) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        325 :     return;</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :   }</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">        232 :   destroy(node-&gt;left);</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">        232 :   destroy(node-&gt;right);</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">        232 :   delete node;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">        273 :   destroy(node-&gt;left);</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">        273 :   destroy(node-&gt;right);</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">        273 :   delete node;</span></a>
 <a name="25"><span class="lineNum">      25 </span>            : }</a>
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <a name="27"><span class="lineNum">      27 </span>            : // 根据层次遍历构造二叉树</a>
