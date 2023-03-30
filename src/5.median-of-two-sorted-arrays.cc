@@ -38,5 +38,8 @@ TEST(Leetcode, median_of_two_sorted_arrays) {
   Solution s;
   EXPECT_EQ(2.0, s.findMedianSortedArray({1, 3}, {2}));
   EXPECT_EQ(2.5, s.findMedianSortedArray({1, 3}, {2, 4}));
+  EXPECT_EQ(3.5, s.findMedianSortedArray({3}, {1, 4, 5}));
+  EXPECT_EQ(4.0, s.findMedianSortedArray({3}, {1, 4, 5, 6}));
   EXPECT_EQ(1.0, s.findMedianSortedArray({1}, {}));
+  EXPECT_EQ(0.0, s.findMedianSortedArray({}, {}));
 }
