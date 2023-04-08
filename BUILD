@@ -19,7 +19,7 @@ package(default_visibility = ["//visibility:public"])
             "-fsanitize=address",
         ],
         deps = [
-            "@com_google_googletest//:gtest_main",
+            "@googletest//:gtest_main",
         ],
     )
     for f in glob(["src/*.cc"])
