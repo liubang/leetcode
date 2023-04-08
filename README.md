@@ -25,12 +25,11 @@ bazel test //...
 ## coverage report
 
 ```bash
-bazel coverage -s \
-    --instrument_test_targets \
+bazel coverage \
     --combined_report=lcov \
     //...
 
-genhtml --output report "$(bazel info output_path)/_coverage/_coverage_report.dat"
+genhtml --output coverage "$(bazel info output_path)/_coverage/_coverage_report.dat"
 ```
 
 [There is the code coverage report](https://liubang.github.io/leetcode/src/index.html)

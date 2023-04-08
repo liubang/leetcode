@@ -2,3 +2,4 @@ common --color=yes
 common --experimental_ui_max_stdouterr_bytes=1073741819
 # bazel build
 test --enable_bzlmod --test_output=all --action_env="GTEST_COLOR=1"
+coverage --enable_bzlmod --test_output=all --action_env="GTEST_COLOR=1"
