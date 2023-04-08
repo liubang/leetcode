@@ -1,5 +1,10 @@
 common --color=yes
 common --experimental_ui_max_stdouterr_bytes=1073741819
+common --config=bzlmod
+
+# Enable Bzlmod
+build:bzlmod --enable_bzlmod
+build:bzlmod --check_direct_dependencies=error
+
 # bazel build
-test --enable_bzlmod --test_output=all --action_env="GTEST_COLOR=1"
-coverage --enable_bzlmod --test_output=all --action_env="GTEST_COLOR=1"
+test --test_output=all --action_env="GTEST_COLOR=1"
