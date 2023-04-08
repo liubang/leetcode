@@ -68,7 +68,7 @@ jobs:
           CXX: g++-11
         run: |
           sudo apt install lcov -y
-          bazelisk coverage -s \
+          bazelisk coverage \
           --instrument_test_targets \
           --combined_report=lcov \
           //...
