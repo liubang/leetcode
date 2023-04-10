@@ -25,10 +25,7 @@ bazel test //...
 ## coverage report
 
 ```bash
-bazel coverage \
-    --combined_report=lcov \
-    //...
-
+bazel coverage --instrument_test_targets --combined_report=lcov //...
 genhtml --output coverage "$(bazel info output_path)/_coverage/_coverage_report.dat"
 ```
 
