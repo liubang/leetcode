@@ -5,17 +5,17 @@
 #include <string>
 #include <vector>
 
-namespace leetcode {
-namespace tree {
+namespace leetcode::tree {
+
 struct TreeNode {
   int val;
-  TreeNode *left;
-  TreeNode *right;
-  TreeNode(int x, TreeNode *left = nullptr, TreeNode *right = nullptr)
+  TreeNode* left;
+  TreeNode* right;
+  TreeNode(int x, TreeNode* left = nullptr, TreeNode* right = nullptr)
       : val(x), left(left), right(right) {}
 };
 
-void destroy(TreeNode *node) {
+void destroy(TreeNode* node) {
   if (!node) {
     return;
   }
@@ -25,9 +25,9 @@ void destroy(TreeNode *node) {
 }
 
 // 根据层次遍历构造二叉树
-TreeNode *create(const std::vector<std::string> &nodes) {
-  std::vector<TreeNode *> pNodes;
-  TreeNode *pCurNode;
+TreeNode* create(const std::vector<std::string>& nodes) {
+  std::vector<TreeNode*> pNodes;
+  TreeNode* pCurNode;
   for (int current = 0; current < nodes.size(); ++current) {
     if (nodes[current] == "null" || nodes[current] == "nullptr" ||
         nodes[current] == "NULL" || nodes[current] == "nil" ||
@@ -51,7 +51,7 @@ TreeNode *create(const std::vector<std::string> &nodes) {
   return pNodes[0];
 }
 
-bool equals(TreeNode *lhs, TreeNode *rhs) {
+bool equals(TreeNode* lhs, TreeNode* rhs) {
   if (lhs && rhs) {
     return lhs->val == rhs->val && equals(lhs->left, rhs->left) &&
            equals(lhs->right, rhs->right);
@@ -65,10 +65,10 @@ enum class Order {
   POST_ORDER,
 };
 
-void print(TreeNode *node, Order order = Order::PRE_ORDER) {
+void print(TreeNode* node, Order order = Order::PRE_ORDER) {
   std::vector<int> seqs;
-  std::function<void(TreeNode *, Order)> visit = [&](TreeNode *node,
-                                                     Order order) {
+  std::function<void(TreeNode*, Order)> visit = [&](TreeNode* node,
+                                                    Order order) {
     if (!node) {
       return;
     }
@@ -99,5 +99,4 @@ void print(TreeNode *node, Order order = Order::PRE_ORDER) {
   std::cout << ']' << std::endl;
 }
 
-} // namespace tree
-} // namespace leetcode
+}  // namespace leetcode::tree
