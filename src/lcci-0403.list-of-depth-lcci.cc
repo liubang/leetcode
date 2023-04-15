@@ -1,9 +1,17 @@
-#include <gtest/gtest.h>
-
+//=====================================================================
+//
+// lcci-0403.list-of-depth-lcci.cc -
+//
+// Created by liubang on 2023/04/15 17:48
+// Last Modified: 2023/04/15 17:48
+//
+//=====================================================================
+#include <memory>
 #include <vector>
-
 #include "list.h"
 #include "tree.h"
+
+#include <gtest/gtest.h>
 
 using leetcode::list::ListNode;
 using leetcode::tree::TreeNode;
@@ -38,9 +46,13 @@ class Solution {
 }  // namespace
 
 TEST(Leetcode, list_of_depth_lcci) {
+  using leetcode::tree::destroy;
+
   Solution s;
   TreeNode* tree =
       leetcode::tree::create({"1", "2", "3", "4", "5", "null", "7", "8"});
+  std::unique_ptr<TreeNode, decltype(&destroy)> tree_ptr(tree, destroy);
+
   auto ret = s.listOfDepth(tree);
   std::vector<std::vector<int>> exp = {{1}, {2, 3}, {4, 5, 7}, {8}};
   EXPECT_EQ(ret.size(), exp.size());
@@ -54,7 +66,6 @@ TEST(Leetcode, list_of_depth_lcci) {
     }
   }
 
-  leetcode::tree::destroy(tree);
   for (auto* list : ret) {
     leetcode::list::destroy(list);
   }

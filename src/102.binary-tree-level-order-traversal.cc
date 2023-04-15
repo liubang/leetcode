@@ -1,37 +1,43 @@
-#include <gtest/gtest.h>
-
+//=====================================================================
+//
+// 102.binary-tree-level-order-traversal.cc -
+//
+// Created by liubang on 2023/04/15 17:45
+// Last Modified: 2023/04/15 17:45
+//
+//=====================================================================
+#include <memory>
 #include <queue>
 #include <vector>
-
 #include "tree.h"
+
+#include <gtest/gtest.h>
 
 using leetcode::tree::TreeNode;
 
 namespace {
 class Solution {
  public:
+  // 这种常用算法就应该经常删了重写,加强理解和记忆
   std::vector<std::vector<int>> levelOrder(TreeNode* root) {
-    if (!root) {
+    if (root == nullptr)
       return {};
-    }
     std::vector<std::vector<int>> ret;
-    std::queue<TreeNode*> queue;
-    queue.push(root);
-    while (!queue.empty()) {
-      int size = queue.size();
-      std::vector<int> row;
+    std::queue<TreeNode*> q;
+    q.push(root);
+    while (!q.empty()) {
+      auto size = static_cast<int64_t>(q.size());
+      std::vector<int> level;
       for (int i = 0; i < size; ++i) {
-        TreeNode* front = queue.front();
-        queue.pop();
-        row.push_back(front->val);
-        if (front->left) {
-          queue.push(front->left);
-        }
-        if (front->right) {
-          queue.push(front->right);
-        }
+        auto* f = q.front();
+        level.push_back(f->val);
+        if (f->left != nullptr)
+          q.push(f->left);
+        if (f->right != nullptr)
+          q.push(f->right);
+        q.pop();
       }
-      ret.emplace_back(std::move(row));
+      ret.push_back(level);
     }
     return ret;
   }
@@ -39,12 +45,14 @@ class Solution {
 }  // namespace
 
 TEST(Leetcode, binary_tree_level_order_traversal) {
+  using leetcode::tree::destroy;
+
   Solution s;
   auto* root = new TreeNode(
       3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+  std::unique_ptr<TreeNode, decltype(&destroy)> root_ptr(root, destroy);
+
   std::vector<std::vector<int>> exp = {{3}, {9, 20}, {15, 7}};
   auto ret = s.levelOrder(root);
   EXPECT_EQ(exp, ret);
-
-  leetcode::tree::destroy(root);
 }
