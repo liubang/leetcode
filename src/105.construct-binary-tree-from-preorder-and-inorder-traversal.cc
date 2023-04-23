@@ -1,9 +1,18 @@
-#include <gtest/gtest.h>
+//=====================================================================
+//
+// 105.construct-binary-tree-from-preorder-and-inorder-traversal.cc -
+//
+// Created by liubang on 2023/04/23 11:39
+// Last Modified: 2023/04/23 11:39
+//
+//=====================================================================
+#include "tree.h"
 
+#include <memory>
 #include <string>
 #include <vector>
 
-#include "tree.h"
+#include <gtest/gtest.h>
 
 namespace {
 class Solution {
@@ -45,12 +54,13 @@ class Solution {
 
 TEST(Leetcode, construct_binary_tree_from_preorder_and_inorder_traversal) {
   using TreeNode = leetcode::tree::TreeNode;
+  using leetcode::tree::destroy;
+
   Solution s;
   std::vector<std::string> nodes = {"3", "9", "20", "null", "null", "15", "7"};
   TreeNode* exp = leetcode::tree::create(nodes);
+  std::unique_ptr<TreeNode, decltype(&destroy)> exp_ptr(exp, destroy);
   TreeNode* ret = s.buildTree({3, 9, 20, 15, 7}, {9, 3, 15, 20, 7});
+  std::unique_ptr<TreeNode, decltype(&destroy)> ret_ptr(ret, destroy);
   EXPECT_TRUE(leetcode::tree::equals(exp, ret));
-
-  leetcode::tree::destroy(exp);
-  leetcode::tree::destroy(ret);
 }
