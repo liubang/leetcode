@@ -1,9 +1,18 @@
-#include <gtest/gtest.h>
+//=====================================================================
+//
+// 129.sum-root-to-leaf-numbers.cc -
+//
+// Created by liubang on 2023/04/23 11:15
+// Last Modified: 2023/04/23 11:15
+//
+//=====================================================================
+#include "tree.h"
 
+#include <memory>
 #include <string>
 #include <vector>
 
-#include "tree.h"
+#include <gtest/gtest.h>
 
 namespace {
 class Solution {
@@ -26,18 +35,21 @@ class Solution {
 }  // namespace
 
 TEST(Leetcode, sum_root_to_leaf_numbers) {
+  using leetcode::tree::destroy;
   Solution s;
   {
     std::vector<std::string> nodes = {"1", "2", "3"};
-    auto root = leetcode::tree::create(nodes);
+    auto* root = leetcode::tree::create(nodes);
+    std::unique_ptr<leetcode::tree::TreeNode, decltype(&destroy)> root_ptr(
+        root, destroy);
     EXPECT_EQ(25, s.sumNumbers(root));
-    leetcode::tree::destroy(root);
   }
 
   {
     std::vector<std::string> nodes = {"4", "9", "0", "5", "1"};
-    auto root = leetcode::tree::create(nodes);
+    auto* root = leetcode::tree::create(nodes);
+    std::unique_ptr<leetcode::tree::TreeNode, decltype(&destroy)> root_ptr(
+        root, destroy);
     EXPECT_EQ(1026, s.sumNumbers(root));
-    leetcode::tree::destroy(root);
   }
 }
