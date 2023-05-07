@@ -56,4 +56,5 @@ TEST(Leetcode, one_way_lcci) {
   Solution s;
   EXPECT_TRUE(s.oneEditAway("pale", "ple"));
   EXPECT_FALSE(s.oneEditAway("pales", "pal"));
+  EXPECT_TRUE(s.oneEditAway("horse", "horae"));
 }
