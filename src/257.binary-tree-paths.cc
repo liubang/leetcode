@@ -19,9 +19,9 @@ class Solution {
  private:
   void dfs(std::vector<std::string>* ret, std::string& cur, TreeNode* node) {
     cur.append(std::to_string(node->val));
-    int size = cur.length();
+    int size = static_cast<int>(cur.length());
     if (!node->left && !node->right) {
-      ret->push_back(cur);
+      ret->push_back(std::string(cur));
       return;
     }
 
