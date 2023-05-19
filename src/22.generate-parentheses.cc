@@ -14,17 +14,22 @@ class Solution {
   }
 
  private:
-  void gen(std::vector<std::string>& ret, std::string& str, int open, int close,
+  void gen(std::vector<std::string>& ret,
+           std::string& str,
+           int open,
+           int close,
            int n) {
-    if (str.length() == n * 2) {
-      ret.push_back(str);
+    if (static_cast<int>(str.length()) == (n * 2)) {
+      ret.push_back(std::string(str.data(), str.size()));
       return;
     }
+
     if (open < n) {
       str.push_back('(');
       gen(ret, str, open + 1, close, n);
       str.pop_back();
     }
+
     if (close < open) {
       str.push_back(')');
       gen(ret, str, open, close + 1, n);
