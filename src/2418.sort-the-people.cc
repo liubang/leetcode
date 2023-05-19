@@ -33,7 +33,9 @@ class Solution {
     std::vector<std::string> result;
     result.reserve(size);
     for (int i = 0; i < size; ++i) {
-      result.push_back(pairs[i].first);
+      std::string s = pairs[i].first;
+      result.push_back(std::move(s));
+      // result[i] = pairs[i].first;
     }
 
     return result;

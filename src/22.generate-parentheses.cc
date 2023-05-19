@@ -20,7 +20,8 @@ class Solution {
            int close,
            int n) {
     if (static_cast<int>(str.length()) == (n * 2)) {
-      ret.push_back(std::string(str.data(), str.size()));
+      std::string s = str;
+      ret.emplace_back(std::move(s));
       return;
     }
 
