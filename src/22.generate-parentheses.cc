@@ -5,52 +5,48 @@
 
 namespace {
 class Solution {
- public:
-  std::vector<std::string> generateParenthesis(int n) {
-    std::vector<std::string> ret;
-    std::string str;
-    gen(ret, str, 0, 0, n);
-    return ret;
-  }
-
- private:
-  void gen(std::vector<std::string>& ret,
-           std::string& str,
-           int open,
-           int close,
-           int n) {
-    if (static_cast<int>(str.length()) == (n * 2)) {
-      std::string s = str;
-      ret.emplace_back(std::move(s));
-      return;
+public:
+    std::vector<std::string> generateParenthesis(int n) {
+        std::vector<std::string> ret;
+        std::string str;
+        gen(ret, str, 0, 0, n);
+        return ret;
     }
 
-    if (open < n) {
-      str.push_back('(');
-      gen(ret, str, open + 1, close, n);
-      str.pop_back();
-    }
+private:
+    void gen(std::vector<std::string>& ret, std::string& str, int open, int close, int n) {
+        if (static_cast<int>(str.length()) == (n * 2)) {
+            std::string s = str;
+            ret.emplace_back(std::move(s));
+            return;
+        }
 
-    if (close < open) {
-      str.push_back(')');
-      gen(ret, str, open, close + 1, n);
-      str.pop_back();
+        if (open < n) {
+            str.push_back('(');
+            gen(ret, str, open + 1, close, n);
+            str.pop_back();
+        }
+
+        if (close < open) {
+            str.push_back(')');
+            gen(ret, str, open, close + 1, n);
+            str.pop_back();
+        }
     }
-  }
 };
-}  // namespace
+} // namespace
 
 TEST(Leetcode, generate_parentheses) {
-  Solution s;
-  {
-    std::vector<std::string> exps = {
-        "((()))", "(()())", "(())()", "()(())", "()()()",
-    };
-    EXPECT_EQ(exps, s.generateParenthesis(3));
-  }
+    Solution s;
+    {
+        std::vector<std::string> exps = {
+            "((()))", "(()())", "(())()", "()(())", "()()()",
+        };
+        EXPECT_EQ(exps, s.generateParenthesis(3));
+    }
 
-  {
-    std::vector<std::string> exps = {"()"};
-    EXPECT_EQ(exps, s.generateParenthesis(1));
-  }
+    {
+        std::vector<std::string> exps = {"()"};
+        EXPECT_EQ(exps, s.generateParenthesis(1));
+    }
 }

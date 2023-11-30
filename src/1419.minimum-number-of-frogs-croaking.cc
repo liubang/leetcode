@@ -13,9 +13,9 @@
 
 namespace {
 class Solution {
- public:
-  int minNumberOfFrogs(const std::string& croakOfFrogs) {
-    // clang-format off
+public:
+    int minNumberOfFrogs(const std::string& croakOfFrogs) {
+        // clang-format off
     std::size_t len = croakOfFrogs.length();
     if ((len % 5) > 0) return -1;
 
@@ -38,17 +38,17 @@ class Solution {
         if (idx == 4) tmp--;
       }
     }
-    // clang-format on
+        // clang-format on
 
-    return tmp > 0 ? -1 : ret;
-  }
+        return tmp > 0 ? -1 : ret;
+    }
 };
-}  // namespace
+} // namespace
 
 TEST(Leetcode, leetcode) {
-  Solution s;
-  EXPECT_EQ(1, s.minNumberOfFrogs("croakcroak"));
-  EXPECT_EQ(2, s.minNumberOfFrogs("crcoakroak"));
-  EXPECT_EQ(-1, s.minNumberOfFrogs("croakcrook"));
-  EXPECT_EQ(4, s.minNumberOfFrogs("cccrrocarkooraakkoak"));
+    Solution s;
+    EXPECT_EQ(1, s.minNumberOfFrogs("croakcroak"));
+    EXPECT_EQ(2, s.minNumberOfFrogs("crcoakroak"));
+    EXPECT_EQ(-1, s.minNumberOfFrogs("croakcrook"));
+    EXPECT_EQ(4, s.minNumberOfFrogs("cccrrocarkooraakkoak"));
 }

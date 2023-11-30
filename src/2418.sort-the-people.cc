@@ -16,43 +16,43 @@
 
 namespace {
 class Solution {
- public:
-  std::vector<std::string> sortPepple(const std::vector<std::string>& names,
-                                      const std::vector<int>& heights) {
-    int size = static_cast<int>(names.size());
-    std::vector<std::pair<std::string, int>> pairs;
-    pairs.reserve(size);
-    for (int i = 0; i < size; ++i) {
-      pairs.emplace_back(names[i], heights[i]);
+public:
+    std::vector<std::string> sortPepple(const std::vector<std::string>& names,
+                                        const std::vector<int>& heights) {
+        int size = static_cast<int>(names.size());
+        std::vector<std::pair<std::string, int>> pairs;
+        pairs.reserve(size);
+        for (int i = 0; i < size; ++i) {
+            pairs.emplace_back(names[i], heights[i]);
+        }
+
+        std::sort(pairs.begin(), pairs.end(), [](const auto& p1, const auto& p2) {
+            return p1.second > p2.second;
+        });
+
+        std::vector<std::string> result;
+        result.reserve(size);
+        for (int i = 0; i < size; ++i) {
+            std::string s = pairs[i].first;
+            result.push_back(std::move(s));
+            // result[i] = pairs[i].first;
+        }
+
+        return result;
     }
-
-    std::sort(pairs.begin(), pairs.end(), [](const auto& p1, const auto& p2) {
-      return p1.second > p2.second;
-    });
-
-    std::vector<std::string> result;
-    result.reserve(size);
-    for (int i = 0; i < size; ++i) {
-      std::string s = pairs[i].first;
-      result.push_back(std::move(s));
-      // result[i] = pairs[i].first;
-    }
-
-    return result;
-  }
 };
-}  // namespace
+} // namespace
 
 TEST(Leetcode, leetcode) {
-  Solution s;
+    Solution s;
 
-  {
-    const std::vector<std::string> exp = {"Mary", "Emma", "John"};
-    EXPECT_EQ(exp, s.sortPepple({"Mary", "John", "Emma"}, {180, 165, 170}));
-  }
+    {
+        const std::vector<std::string> exp = {"Mary", "Emma", "John"};
+        EXPECT_EQ(exp, s.sortPepple({"Mary", "John", "Emma"}, {180, 165, 170}));
+    }
 
-  {
-    const std::vector<std::string> exp = {"Bob", "Alice", "Bob"};
-    EXPECT_EQ(exp, s.sortPepple({"Alice", "Bob", "Bob"}, {155, 185, 150}));
-  }
+    {
+        const std::vector<std::string> exp = {"Bob", "Alice", "Bob"};
+        EXPECT_EQ(exp, s.sortPepple({"Alice", "Bob", "Bob"}, {155, 185, 150}));
+    }
 }
