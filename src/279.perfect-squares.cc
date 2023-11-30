@@ -23,25 +23,25 @@ namespace {
  * 清楚了递推公式，代码就非常简单了。
  */
 class Solution {
- public:
-  int numSquares(int n) {
-    std::vector<int> dp(n + 1, 0);
-    for (int i = 1; i <= n; ++i) {
-      int min = INT_MAX;
-      for (int j = 1; j * j <= i; ++j) {
-        min = std::min(min, dp[i - j * j]);
-      }
-      dp[i] = min + 1;
+public:
+    int numSquares(int n) {
+        std::vector<int> dp(n + 1, 0);
+        for (int i = 1; i <= n; ++i) {
+            int min = INT_MAX;
+            for (int j = 1; j * j <= i; ++j) {
+                min = std::min(min, dp[i - j * j]);
+            }
+            dp[i] = min + 1;
+        }
+        return dp[n];
     }
-    return dp[n];
-  }
 };
-}  // namespace
+} // namespace
 
 TEST(Leetcode, leetcode) {
-  Solution s;
-  EXPECT_EQ(3, s.numSquares(12));
-  EXPECT_EQ(2, s.numSquares(13));
-  EXPECT_EQ(3, s.numSquares(14));
-  EXPECT_EQ(4, s.numSquares(15));
+    Solution s;
+    EXPECT_EQ(3, s.numSquares(12));
+    EXPECT_EQ(2, s.numSquares(13));
+    EXPECT_EQ(3, s.numSquares(14));
+    EXPECT_EQ(4, s.numSquares(15));
 }
