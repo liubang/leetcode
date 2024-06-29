@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-06-29 09:48:32</td>
+            <td class="headerValue">2024-06-29 10:01:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -60,80 +60,88 @@
       <td>
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>            : //=====================================================================</a>
+<a name="1"><span class="lineNum">       1 </span>            : // Copyright (c) 2024 The Authors. All rights reserved.</a>
 <a name="2"><span class="lineNum">       2 </span>            : //</a>
-<a name="3"><span class="lineNum">       3 </span>            : // 322.coin-change.cc -</a>
-<a name="4"><span class="lineNum">       4 </span>            : //</a>
-<a name="5"><span class="lineNum">       5 </span>            : // Created by liubang on 2023/04/17 21:01</a>
-<a name="6"><span class="lineNum">       6 </span>            : // Last Modified: 2023/04/17 21:01</a>
-<a name="7"><span class="lineNum">       7 </span>            : //</a>
-<a name="8"><span class="lineNum">       8 </span>            : //=====================================================================</a>
-<a name="9"><span class="lineNum">       9 </span>            : #include &lt;climits&gt;</a>
-<a name="10"><span class="lineNum">      10 </span>            : #include &lt;vector&gt;</a>
-<a name="11"><span class="lineNum">      11 </span>            : </a>
-<a name="12"><span class="lineNum">      12 </span>            : #include &lt;gtest/gtest.h&gt;</a>
-<a name="13"><span class="lineNum">      13 </span>            : </a>
-<a name="14"><span class="lineNum">      14 </span>            : namespace {</a>
-<a name="15"><span class="lineNum">      15 </span>            : class Solution {</a>
-<a name="16"><span class="lineNum">      16 </span>            : public:</a>
-<a name="17"><span class="lineNum">      17 </span>            :     /**</a>
-<a name="18"><span class="lineNum">      18 </span>            :      * 这也是一道典型的完全背包问题，整体解法跟279类似</a>
-<a name="19"><span class="lineNum">      19 </span>            :      * 令dp[i]表示，凑够i元，最少需要的硬币数量，由题可知，当提供的硬币不满足条件的时候返回-1</a>
-<a name="20"><span class="lineNum">      20 </span>            :      * 而最小的硬币面值为1，所以这里用到了一个小技巧，凑够amount在满足条件的情况下，最多需要</a>
-<a name="21"><span class="lineNum">      21 </span>            :      * amount个硬币，所以令dp中所有的值默认为amount + 1表示无法满足的情况;</a>
-<a name="22"><span class="lineNum">      22 </span>            :      *</a>
-<a name="23"><span class="lineNum">      23 </span>            :      * 则dp = std::min(d[i], dp[i - coins[0]] + 1, ..., dp[i - coins[coins.size()</a>
-<a name="24"><span class="lineNum">      24 </span>            :      * - 1]] + 1)</a>
-<a name="25"><span class="lineNum">      25 </span>            :      *</a>
-<a name="26"><span class="lineNum">      26 </span>            :      * 最后判断dp[amount]如果大于amount则表示不符合要求，否则返回值即可。</a>
-<a name="27"><span class="lineNum">      27 </span>            :      *</a>
-<a name="28"><span class="lineNum">      28 </span>            :      */</a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">          3 :     int coinChange(const std::vector&lt;int&gt;&amp; coins, int amount) {</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">          6 :         std::vector&lt;int&gt; dp(amount + 1, amount + 1);</span></a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">          3 :         dp[0] = 0;</span></a>
-<a name="32"><span class="lineNum">      32 </span><span class="lineCov">         18 :         for (int i = 1; i &lt;= amount; ++i) {</span></a>
-<a name="33"><span class="lineNum">      33 </span><span class="lineCov">         52 :             for (auto coin : coins) {</span></a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         37 :                 if (coin &lt;= i) {</span></a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">         31 :                     dp[i] = std::min(dp[i], dp[i - coin] + 1);</span></a>
-<a name="36"><span class="lineNum">      36 </span>            :                 }</a>
-<a name="37"><span class="lineNum">      37 </span>            :             }</a>
-<a name="38"><span class="lineNum">      38 </span>            :         }</a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">          6 :         return dp[amount] &gt; amount ? -1 : dp[amount];</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">          3 :     }</span></a>
-<a name="41"><span class="lineNum">      41 </span>            : </a>
-<a name="42"><span class="lineNum">      42 </span>            :     /**</a>
-<a name="43"><span class="lineNum">      43 </span>            :      * 这个解法跟上面的基本思想一样，只不过这个更容易理解一下，上面的更巧妙</a>
-<a name="44"><span class="lineNum">      44 </span>            :      */</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          3 :     int coinChange2(const std::vector&lt;int&gt;&amp; coins, int amount) {</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">          6 :         std::vector&lt;int&gt; dp(amount + 1, 0);</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">         18 :         for (int i = 1; i &lt;= amount; ++i) {</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">         15 :             int min = INT_MAX;</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         52 :             for (int coin : coins) {</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">         37 :                 if (coin &gt; i || dp[i - coin] &lt; 0)</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">          7 :                     continue;</span></a>
-<a name="52"><span class="lineNum">      52 </span>            :                 else</a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">         30 :                     min = std::min(min, dp[i - coin]);</span></a>
-<a name="54"><span class="lineNum">      54 </span>            :             }</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">         15 :             if (min == INT_MAX)</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          2 :                 dp[i] = -1;</span></a>
-<a name="57"><span class="lineNum">      57 </span>            :             else</a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         13 :                 dp[i] = min + 1;</span></a>
-<a name="59"><span class="lineNum">      59 </span>            :         }</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">          6 :         return dp[amount];</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">          3 :     }</span></a>
-<a name="62"><span class="lineNum">      62 </span>            : };</a>
-<a name="63"><span class="lineNum">      63 </span>            : } // namespace</a>
-<a name="64"><span class="lineNum">      64 </span>            : </a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          4 : TEST(Leetcode, coin_change) {</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">          1 :     Solution s;</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">          3 :     EXPECT_EQ(3, s.coinChange({1, 2, 5}, 11));</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">          3 :     EXPECT_EQ(-1, s.coinChange({2}, 3));</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">          3 :     EXPECT_EQ(1, s.coinChange({1}, 1));</span></a>
-<a name="70"><span class="lineNum">      70 </span>            : </a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">          3 :     EXPECT_EQ(3, s.coinChange2({1, 2, 5}, 11));</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          3 :     EXPECT_EQ(-1, s.coinChange2({2}, 3));</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          3 :     EXPECT_EQ(1, s.coinChange2({1}, 1));</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">          1 : }</span></a>
+<a name="3"><span class="lineNum">       3 </span>            : // Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</a>
+<a name="4"><span class="lineNum">       4 </span>            : // you may not use this file except in compliance with the License.</a>
+<a name="5"><span class="lineNum">       5 </span>            : // You may obtain a copy of the License at</a>
+<a name="6"><span class="lineNum">       6 </span>            : //</a>
+<a name="7"><span class="lineNum">       7 </span>            : //      https://www.apache.org/licenses/LICENSE-2.0</a>
+<a name="8"><span class="lineNum">       8 </span>            : //</a>
+<a name="9"><span class="lineNum">       9 </span>            : // Unless required by applicable law or agreed to in writing, software</a>
+<a name="10"><span class="lineNum">      10 </span>            : // distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</a>
+<a name="11"><span class="lineNum">      11 </span>            : // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
+<a name="12"><span class="lineNum">      12 </span>            : // See the License for the specific language governing permissions and</a>
+<a name="13"><span class="lineNum">      13 </span>            : // limitations under the License.</a>
+<a name="14"><span class="lineNum">      14 </span>            : </a>
+<a name="15"><span class="lineNum">      15 </span>            : // Authors: liubang (it.liubang@gmail.com)</a>
+<a name="16"><span class="lineNum">      16 </span>            : </a>
+<a name="17"><span class="lineNum">      17 </span>            : #include &lt;climits&gt;</a>
+<a name="18"><span class="lineNum">      18 </span>            : #include &lt;vector&gt;</a>
+<a name="19"><span class="lineNum">      19 </span>            : </a>
+<a name="20"><span class="lineNum">      20 </span>            : #include &lt;gtest/gtest.h&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>            : </a>
+<a name="22"><span class="lineNum">      22 </span>            : namespace {</a>
+<a name="23"><span class="lineNum">      23 </span>            : class Solution {</a>
+<a name="24"><span class="lineNum">      24 </span>            : public:</a>
+<a name="25"><span class="lineNum">      25 </span>            :     /**</a>
+<a name="26"><span class="lineNum">      26 </span>            :      * 这也是一道典型的完全背包问题，整体解法跟279类似</a>
+<a name="27"><span class="lineNum">      27 </span>            :      * 令dp[i]表示，凑够i元，最少需要的硬币数量，由题可知，当提供的硬币不满足条件的时候返回-1</a>
+<a name="28"><span class="lineNum">      28 </span>            :      * 而最小的硬币面值为1，所以这里用到了一个小技巧，凑够amount在满足条件的情况下，最多需要</a>
+<a name="29"><span class="lineNum">      29 </span>            :      * amount个硬币，所以令dp中所有的值默认为amount + 1表示无法满足的情况;</a>
+<a name="30"><span class="lineNum">      30 </span>            :      *</a>
+<a name="31"><span class="lineNum">      31 </span>            :      * 则dp = std::min(d[i], dp[i - coins[0]] + 1, ..., dp[i - coins[coins.size()</a>
+<a name="32"><span class="lineNum">      32 </span>            :      * - 1]] + 1)</a>
+<a name="33"><span class="lineNum">      33 </span>            :      *</a>
+<a name="34"><span class="lineNum">      34 </span>            :      * 最后判断dp[amount]如果大于amount则表示不符合要求，否则返回值即可。</a>
+<a name="35"><span class="lineNum">      35 </span>            :      *</a>
+<a name="36"><span class="lineNum">      36 </span>            :      */</a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">          3 :     int coinChange(const std::vector&lt;int&gt;&amp; coins, int amount) {</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">          6 :         std::vector&lt;int&gt; dp(amount + 1, amount + 1);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">          3 :         dp[0] = 0;</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">         18 :         for (int i = 1; i &lt;= amount; ++i) {</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">         52 :             for (auto coin : coins) {</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         37 :                 if (coin &lt;= i) {</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         31 :                     dp[i] = std::min(dp[i], dp[i - coin] + 1);</span></a>
+<a name="44"><span class="lineNum">      44 </span>            :                 }</a>
+<a name="45"><span class="lineNum">      45 </span>            :             }</a>
+<a name="46"><span class="lineNum">      46 </span>            :         }</a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">          6 :         return dp[amount] &gt; amount ? -1 : dp[amount];</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">          3 :     }</span></a>
+<a name="49"><span class="lineNum">      49 </span>            : </a>
+<a name="50"><span class="lineNum">      50 </span>            :     /**</a>
+<a name="51"><span class="lineNum">      51 </span>            :      * 这个解法跟上面的基本思想一样，只不过这个更容易理解一下，上面的更巧妙</a>
+<a name="52"><span class="lineNum">      52 </span>            :      */</a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          3 :     int coinChange2(const std::vector&lt;int&gt;&amp; coins, int amount) {</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">          6 :         std::vector&lt;int&gt; dp(amount + 1, 0);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">         18 :         for (int i = 1; i &lt;= amount; ++i) {</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">         15 :             int min = INT_MAX;</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">         52 :             for (int coin : coins) {</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         37 :                 if (coin &gt; i || dp[i - coin] &lt; 0)</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          7 :                     continue;</span></a>
+<a name="60"><span class="lineNum">      60 </span>            :                 else</a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         30 :                     min = std::min(min, dp[i - coin]);</span></a>
+<a name="62"><span class="lineNum">      62 </span>            :             }</a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         15 :             if (min == INT_MAX)</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          2 :                 dp[i] = -1;</span></a>
+<a name="65"><span class="lineNum">      65 </span>            :             else</a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         13 :                 dp[i] = min + 1;</span></a>
+<a name="67"><span class="lineNum">      67 </span>            :         }</a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">          6 :         return dp[amount];</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">          3 :     }</span></a>
+<a name="70"><span class="lineNum">      70 </span>            : };</a>
+<a name="71"><span class="lineNum">      71 </span>            : } // namespace</a>
+<a name="72"><span class="lineNum">      72 </span>            : </a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          4 : TEST(Leetcode, coin_change) {</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">          1 :     Solution s;</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          3 :     EXPECT_EQ(3, s.coinChange({1, 2, 5}, 11));</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          3 :     EXPECT_EQ(-1, s.coinChange({2}, 3));</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          3 :     EXPECT_EQ(1, s.coinChange({1}, 1));</span></a>
+<a name="78"><span class="lineNum">      78 </span>            : </a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          3 :     EXPECT_EQ(3, s.coinChange2({1, 2, 5}, 11));</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          3 :     EXPECT_EQ(-1, s.coinChange2({2}, 3));</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">          3 :     EXPECT_EQ(1, s.coinChange2({1}, 1));</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          1 : }</span></a>
 </pre>
       </td>
     </tr>
