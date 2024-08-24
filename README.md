@@ -29,4 +29,4 @@ bazel coverage --instrument_test_targets --combined_report=lcov //...
 genhtml --output coverage "$(bazel info output_path)/_coverage/_coverage_report.dat"
 ```
 
-[There is the code coverage report](https://liubang.github.io/leetcode/src/index.html)
+[There is the code coverage report](https://liubang.github.io/leetcode/src/src/index.html)
