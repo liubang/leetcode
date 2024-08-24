@@ -72,14 +72,15 @@ jobs:
           disk-cache: false
           repository-cache: true
       - run: sudo apt update
+      - run: sudo apt install lcov
       - run: sudo apt install yasm
       - run: sudo apt install nasm
-      - name: run build
+      - name: run coverage
         env:
           CC: gcc-12
           CXX: g++-12
         run: |
-          bazelisk coverage --disk_cache=bazel-disk  --instrument_test_targets --combined_report=lcov //...
+          bazel coverage --disk_cache=bazel-disk --instrument_test_targets --combined_report=lcov //...
           genhtml --output coverage "./bazel-out/_coverage/_coverage_report.dat"
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
