@@ -16,62 +16,70 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   matrix:
     name: "GCC"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
-        GCC: [9, 10, 11]
+        GCC: [9, 10, 11, 12]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-go@v3
-        with:
-          go-version: "^1.22.0"
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         env:
           cache-name: bazel-${{ matrix.GCC }}
         with:
-          path: ~/.cache/bazelisk
-          key: ${{ env.cache-name }}-${{ runner.os }}
-          restore-keys: |
-            ${{ env.cache-name }}-${{ runner.os }}
-      - run: go install github.com/bazelbuild/bazelisk@latest
+          path: bazel-disk
+          key: ${{ github.workflow }}-${{ env.cache-name }}-${{ runner.os }}-${{github.sha}}
+          restore-keys: ${{ github.workflow }}-${{ env.cache-name }}-${{ runner.os }}-
+          save-always: true
+      - uses: bazel-contrib/setup-bazel@0.8.5
+        with:
+          bazelisk-cache: true
+          disk-cache: false
+          repository-cache: false
       - name: run build
         env:
           CC: gcc-${{ matrix.GCC }}
           CXX: g++-${{ matrix.GCC }}
         run: |
-          bazelisk test //...
+          bazel test --disk_cache=bazel-disk //...
   coverage:
     name: code coverage
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [matrix]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-go@v3
-        with:
-          go-version: "^1.22.0"
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         env:
           cache-name: bazel-coverage
         with:
-          path: ~/.cache/bazelisk
-          key: ${{ env.cache-name }}-${{ runner.os }}
-          restore-keys: |
-            ${{ env.cache-name }}-${{ runner.os }}
-      - run: go install github.com/bazelbuild/bazelisk@latest
+          path: bazel-disk
+          key: ${{ github.workflow }}-${{ env.cache-name }}-${{ runner.os }}-${{github.sha}}
+          restore-keys: ${{ github.workflow }}-${{ env.cache-name }}-${{ runner.os }}-
+          save-always: true
+      - uses: bazel-contrib/setup-bazel@0.8.5
+        with:
+          bazelisk-cache: true
+          disk-cache: false
+          repository-cache: true
+      - run: sudo apt update
+      - run: sudo apt install yasm
+      - run: sudo apt install nasm
       - name: run build
         env:
-          CC: gcc-11
-          CXX: g++-11
+          CC: gcc-12
+          CXX: g++-12
         run: |
-          sudo apt install lcov -y
-          bazelisk coverage --instrument_test_targets --combined_report=lcov //...
+          bazelisk coverage --disk_cache=bazel-disk  --instrument_test_targets --combined_report=lcov //...
           genhtml --output coverage "./bazel-out/_coverage/_coverage_report.dat"
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
