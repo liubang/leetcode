@@ -15,6 +15,7 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2022/01/17 14:50
 
+#include <algorithm>
 #include <gtest/gtest.h>
 
 #include <vector>

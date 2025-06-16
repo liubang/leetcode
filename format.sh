@@ -13,9 +13,9 @@ CLANG_FORMAT='clang-format -i'
 dirs=('include' 'src')
 
 for dir in "${dirs[@]}"; do
-    find "${dir}" -regex '.*\(\.cc\|\.h|\.cpp\)$' | while read file; do
-        cmd="${CLANG_FORMAT} ${file}"
-        echo ${cmd}
-        eval ${cmd}
-    done
+	find "${dir}" -regex '.*\(\.cc\|\.h|\.cpp\)$' | while read file; do
+		cmd="${CLANG_FORMAT} ${file}"
+		echo ${cmd}
+		eval ${cmd}
+	done
 done
