@@ -14,6 +14,7 @@
 
 // Authors: liubang (it.liubang@gmail.com)
 
+#include <algorithm>
 #include <gtest/gtest.h>
 
 #include <vector>

@@ -1,5 +1,13 @@
+# 自动启用基于平台的特定配置
+common --enable_platform_specific_config
+
 common --color=yes
 common --experimental_ui_max_stdouterr_bytes=1073741819
+
+
+build --jobs=10
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
 
 # bazel test
 test --test_output=all --action_env="GTEST_COLOR=1"

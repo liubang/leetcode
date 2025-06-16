@@ -11,7 +11,6 @@
 cc_library(
     name = "common",
     hdrs = glob(["include/*.h"]),
-    copts = ["-std=c++17"],
     includes = ["include"],
     visibility = ["//visibility:private"],
 )
