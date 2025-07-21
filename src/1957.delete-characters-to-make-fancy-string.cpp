@@ -17,8 +17,9 @@
 // @leet imports start
 #include <gtest/gtest.h>
 #include <string>
-namespace {
 // @leet imports end
+
+namespace {
 
 // @leet start
 class Solution {
