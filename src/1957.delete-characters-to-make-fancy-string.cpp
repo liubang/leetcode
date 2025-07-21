@@ -43,7 +43,8 @@ public:
 // @leet end
 
 } // namespace
-TEST(Leetcode, aaa) {
+
+TEST(Leetcode, delete_characters_to_make_fancy_string) {
     Solution s;
     EXPECT_EQ("leetcode", s.makeFancyString("leeetcode"));
     EXPECT_EQ("aabaa", s.makeFancyString("aaabaaaa"));
