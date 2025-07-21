@@ -40,5 +40,5 @@ cc_library(
             "@googletest//:gtest_main",
         ],
     )
-    for f in glob(["src/*.cc", "src/*.cpp"])
+    for f in glob(["src/*.cpp"])
 ]
