@@ -31,13 +31,13 @@
             <td class="headerValue">_coverage_report.dat</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">93.5&nbsp;%</td>
-            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">29</td>
             <td class="headerCovTableEntry">29</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-07-24 17:41:04</td>
+            <td class="headerValue">2025-10-25 15:02:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -84,49 +84,44 @@
 <span id="L22"><span class="lineNum">      22</span>              : class Solution {</span>
 <span id="L23"><span class="lineNum">      23</span>              : public:</span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">           3 :     std::vector&lt;int&gt; searchRange(const std::vector&lt;int&gt;&amp; nums, int target) {</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           3 :         int len = nums.size();</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           3 :         if (len == 0 || target &lt; nums[0] || target &gt; nums[len - 1]) {</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC tlaBgUNC">           0 :             return {-1, -1};</span></span>
-<span id="L28"><span class="lineNum">      28</span>              :         }</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">           3 :         int st = 0, ed = len - 1;</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           7 :         while (st &lt;= ed) {</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           6 :             int mid = (st + ed) / 2;</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           6 :             if (nums[mid] == target) {</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           2 :                 int i = mid;</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           5 :                 while (i &gt;= 0 &amp;&amp; nums[i] == target) {</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           3 :                     i--;</span></span>
-<span id="L36"><span class="lineNum">      36</span>              :                 }</span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           2 :                 int j = mid + 1;</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           2 :                 while (j &lt; len &amp;&amp; nums[j] == target) {</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC tlaBgUNC">           0 :                     j++;</span></span>
-<span id="L40"><span class="lineNum">      40</span>              :                 }</span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">           2 :                 return {i + 1, j - 1};</span></span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           4 :             } else if (nums[mid] &gt; target) {</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           2 :                 ed = mid - 1;</span></span>
-<span id="L44"><span class="lineNum">      44</span>              :             } else {</span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           2 :                 st = mid + 1;</span></span>
-<span id="L46"><span class="lineNum">      46</span>              :             }</span>
-<span id="L47"><span class="lineNum">      47</span>              :         }</span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           1 :         return {-1, -1};</span></span>
-<span id="L49"><span class="lineNum">      49</span>              :     }</span>
-<span id="L50"><span class="lineNum">      50</span>              : };</span>
-<span id="L51"><span class="lineNum">      51</span>              : } // namespace</span>
-<span id="L52"><span class="lineNum">      52</span>              : </span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           4 : TEST(Leetcode, find_first_and_last_position_of_element_in_sorted_array) {</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
-<span id="L55"><span class="lineNum">      55</span>              :     {</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {3, 4};</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({5, 7, 7, 8, 8, 10}, 8));</span></span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">           1 :     }</span></span>
-<span id="L59"><span class="lineNum">      59</span>              :     {</span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {-1, -1};</span></span>
-<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({5, 7, 7, 8, 8, 10}, 6));</span></span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">           1 :     }</span></span>
-<span id="L63"><span class="lineNum">      63</span>              :     {</span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {0, 0};</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({1}, 1));</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           1 :     }</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">           1 : }</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           3 :         int s = 0;</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           3 :         int e = nums.size();</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           6 :         while (s &lt; e) {</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           5 :             int mid = s + (e - s) / 2;</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           5 :             if (nums[mid] == target) {</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           2 :                 int l = mid;</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :                 int r = mid;</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           4 :                 while (l &gt;= 0 &amp;&amp; nums[l] == target)</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           2 :                     --l;</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           5 :                 while (r &lt; nums.size() &amp;&amp; nums[r] == target)</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           3 :                     ++r;</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           2 :                 return {l + 1, r - 1};</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           3 :             } else if (nums[mid] &lt; target) {</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :                 s = mid + 1;</span></span>
+<span id="L39"><span class="lineNum">      39</span>              :             } else {</span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           2 :                 e = mid;</span></span>
+<span id="L41"><span class="lineNum">      41</span>              :             }</span>
+<span id="L42"><span class="lineNum">      42</span>              :         }</span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :         return {-1, -1};</span></span>
+<span id="L44"><span class="lineNum">      44</span>              :     }</span>
+<span id="L45"><span class="lineNum">      45</span>              : };</span>
+<span id="L46"><span class="lineNum">      46</span>              : } // namespace</span>
+<span id="L47"><span class="lineNum">      47</span>              : </span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           4 : TEST(Leetcode, find_first_and_last_position_of_element_in_sorted_array) {</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
+<span id="L50"><span class="lineNum">      50</span>              :     {</span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {3, 4};</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({5, 7, 7, 8, 8, 10}, 8));</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :     }</span></span>
+<span id="L54"><span class="lineNum">      54</span>              :     {</span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {-1, -1};</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({5, 7, 7, 8, 8, 10}, 6));</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           1 :     }</span></span>
+<span id="L58"><span class="lineNum">      58</span>              :     {</span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">           1 :         std::vector&lt;int&gt; exp = {0, 0};</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">           1 :         EXPECT_EQ(exp, s.searchRange({1}, 1));</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">           1 :     }</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">           1 : }</span></span>
         </pre>
               </td>
             </tr>
