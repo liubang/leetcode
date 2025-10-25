@@ -22,22 +22,16 @@ namespace {
 class Solution {
 public:
     int searchInsert(const std::vector<int>& nums, int target) {
-        if (nums.empty() || nums[0] > target) {
-            return 0;
-        }
-        int size = nums.size();
-        if (nums[size - 1] < target) {
-            return size;
-        }
-        int s = 0, e = size - 1;
+        int s = 0;
+        int e = nums.size();
         while (s < e) {
-            int m = (s + e) / 2;
-            if (nums[m] == target) {
-                return m;
-            } else if (target > nums[m]) {
-                s = m + 1;
+            int mid = s + (e - s) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                s = mid + 1;
             } else {
-                e = m;
+                e = mid;
             }
         }
         return s;

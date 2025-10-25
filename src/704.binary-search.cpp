@@ -22,19 +22,16 @@ namespace {
 class Solution {
 public:
     int search(const std::vector<int>& nums, int target) {
-        int size = nums.size();
-        if (size == 0 || target < nums[0] || target > nums[size - 1]) {
-            return false;
-        }
-        int st = 0, ed = size - 1;
-        while (st <= ed) {
-            int mid = (st + ed) / 2;
+        int s = 0;
+        int e = nums.size();
+        while (s < e) {
+            int mid = (s + e) / 2;
             if (nums[mid] == target) {
                 return mid;
-            } else if (nums[mid] > target) {
-                ed = mid - 1;
+            } else if (nums[mid] < target) {
+                s = mid + 1;
             } else {
-                st = mid + 1;
+                e = mid;
             }
         }
         return -1;

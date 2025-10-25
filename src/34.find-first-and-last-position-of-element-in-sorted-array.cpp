@@ -22,27 +22,22 @@ namespace {
 class Solution {
 public:
     std::vector<int> searchRange(const std::vector<int>& nums, int target) {
-        int len = nums.size();
-        if (len == 0 || target < nums[0] || target > nums[len - 1]) {
-            return {-1, -1};
-        }
-        int st = 0, ed = len - 1;
-        while (st <= ed) {
-            int mid = (st + ed) / 2;
+        int s = 0;
+        int e = nums.size();
+        while (s < e) {
+            int mid = s + (e - s) / 2;
             if (nums[mid] == target) {
-                int i = mid;
-                while (i >= 0 && nums[i] == target) {
-                    i--;
-                }
-                int j = mid + 1;
-                while (j < len && nums[j] == target) {
-                    j++;
-                }
-                return {i + 1, j - 1};
-            } else if (nums[mid] > target) {
-                ed = mid - 1;
+                int l = mid;
+                int r = mid;
+                while (l >= 0 && nums[l] == target)
+                    --l;
+                while (r < nums.size() && nums[r] == target)
+                    ++r;
+                return {l + 1, r - 1};
+            } else if (nums[mid] < target) {
+                s = mid + 1;
             } else {
-                st = mid + 1;
+                e = mid;
             }
         }
         return {-1, -1};
