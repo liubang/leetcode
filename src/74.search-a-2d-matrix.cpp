@@ -24,13 +24,18 @@ public:
     bool searchMatrix(const std::vector<std::vector<int>>& matrix, int target) {
         int m = matrix.size();
         int n = matrix[0].size();
-        for (int i = m - 1, j = 0; (i >= 0) && (j < n);) {
-            if (matrix[i][j] == target) {
+        int s = 0;
+        int e = m * n;
+        while (s < e) {
+            int mid = s + (e - s) / 2;
+            int r = mid / n;
+            int c = mid % n;
+            if (matrix[r][c] == target) {
                 return true;
-            } else if (matrix[i][j] < target) {
-                j++;
+            } else if (matrix[r][c] < target) {
+                s = mid + 1;
             } else {
-                i--;
+                e = mid;
             }
         }
         return false;
