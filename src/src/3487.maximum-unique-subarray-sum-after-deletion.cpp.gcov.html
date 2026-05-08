@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-10-26 13:00:11</td>
+            <td class="headerValue">2026-05-08 16:47:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -75,44 +75,45 @@
 <span id="L13"><span class="lineNum">      13</span>              : // limitations under the License.</span>
 <span id="L14"><span class="lineNum">      14</span>              : </span>
 <span id="L15"><span class="lineNum">      15</span>              : // Authors: liubang (it.liubang@gmail.com)</span>
-<span id="L16"><span class="lineNum">      16</span>              : </span>
-<span id="L17"><span class="lineNum">      17</span>              : // @leet imports start</span>
-<span id="L18"><span class="lineNum">      18</span>              : #include &lt;climits&gt;</span>
-<span id="L19"><span class="lineNum">      19</span>              : #include &lt;gtest/gtest.h&gt;</span>
-<span id="L20"><span class="lineNum">      20</span>              : #include &lt;numeric&gt;</span>
-<span id="L21"><span class="lineNum">      21</span>              : #include &lt;unordered_set&gt;</span>
-<span id="L22"><span class="lineNum">      22</span>              : #include &lt;vector&gt;</span>
-<span id="L23"><span class="lineNum">      23</span>              : // @leet imports end</span>
-<span id="L24"><span class="lineNum">      24</span>              : </span>
-<span id="L25"><span class="lineNum">      25</span>              : namespace {</span>
-<span id="L26"><span class="lineNum">      26</span>              : </span>
-<span id="L27"><span class="lineNum">      27</span>              : // @leet start</span>
-<span id="L28"><span class="lineNum">      28</span>              : class Solution {</span>
-<span id="L29"><span class="lineNum">      29</span>              : public:</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">           3 :     int maxSum(const std::vector&lt;int&gt;&amp; nums) {</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           3 :         std::unordered_set&lt;int&gt; positive;</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           3 :         int maxEle = INT_MIN;</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          20 :         for (auto&amp; num : nums) {</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          17 :             if (num &gt; 0) {</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          12 :                 positive.insert(num);</span></span>
-<span id="L36"><span class="lineNum">      36</span>              :             }</span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          17 :             maxEle = std::max(maxEle, num);</span></span>
-<span id="L38"><span class="lineNum">      38</span>              :         }</span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           3 :         if (positive.empty()) {</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :             return maxEle;</span></span>
-<span id="L41"><span class="lineNum">      41</span>              :         }</span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">           3 :         return std::accumulate(positive.begin(), positive.end(), 0);</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           3 :     }</span></span>
-<span id="L44"><span class="lineNum">      44</span>              : };</span>
-<span id="L45"><span class="lineNum">      45</span>              : // @leet end</span>
-<span id="L46"><span class="lineNum">      46</span>              : </span>
-<span id="L47"><span class="lineNum">      47</span>              : } // namespace</span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           4 : TEST(Leetcode, maximum_unique_subarray_sum_after_deletion) {</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :     EXPECT_EQ(15, s.maxSum({1, 2, 3, 4, 5}));</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.maxSum({1, 1, 0, 1, 1}));</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :     EXPECT_EQ(3, s.maxSum({1, 2, -1, -2, 1, 0, -1}));</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 : }</span></span>
+<span id="L16"><span class="lineNum">      16</span>              : // Created: 2025/07/25 01:38</span>
+<span id="L17"><span class="lineNum">      17</span>              : </span>
+<span id="L18"><span class="lineNum">      18</span>              : // @leet imports start</span>
+<span id="L19"><span class="lineNum">      19</span>              : #include &lt;climits&gt;</span>
+<span id="L20"><span class="lineNum">      20</span>              : #include &lt;gtest/gtest.h&gt;</span>
+<span id="L21"><span class="lineNum">      21</span>              : #include &lt;numeric&gt;</span>
+<span id="L22"><span class="lineNum">      22</span>              : #include &lt;unordered_set&gt;</span>
+<span id="L23"><span class="lineNum">      23</span>              : #include &lt;vector&gt;</span>
+<span id="L24"><span class="lineNum">      24</span>              : // @leet imports end</span>
+<span id="L25"><span class="lineNum">      25</span>              : </span>
+<span id="L26"><span class="lineNum">      26</span>              : namespace {</span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span>              : // @leet start</span>
+<span id="L29"><span class="lineNum">      29</span>              : class Solution {</span>
+<span id="L30"><span class="lineNum">      30</span>              : public:</span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">           3 :     int maxSum(const std::vector&lt;int&gt;&amp; nums) {</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           3 :         std::unordered_set&lt;int&gt; positive;</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           3 :         int maxEle = INT_MIN;</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          20 :         for (auto&amp; num : nums) {</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          17 :             if (num &gt; 0) {</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          12 :                 positive.insert(num);</span></span>
+<span id="L37"><span class="lineNum">      37</span>              :             }</span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          17 :             maxEle = std::max(maxEle, num);</span></span>
+<span id="L39"><span class="lineNum">      39</span>              :         }</span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           3 :         if (positive.empty()) {</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC tlaBgUNC">           0 :             return maxEle;</span></span>
+<span id="L42"><span class="lineNum">      42</span>              :         }</span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           3 :         return std::accumulate(positive.begin(), positive.end(), 0);</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           3 :     }</span></span>
+<span id="L45"><span class="lineNum">      45</span>              : };</span>
+<span id="L46"><span class="lineNum">      46</span>              : // @leet end</span>
+<span id="L47"><span class="lineNum">      47</span>              : </span>
+<span id="L48"><span class="lineNum">      48</span>              : } // namespace</span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           4 : TEST(Leetcode, maximum_unique_subarray_sum_after_deletion) {</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :     EXPECT_EQ(15, s.maxSum({1, 2, 3, 4, 5}));</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.maxSum({1, 1, 0, 1, 1}));</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :     EXPECT_EQ(3, s.maxSum({1, 2, -1, -2, 1, 0, -1}));</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 : }</span></span>
         </pre>
               </td>
             </tr>
