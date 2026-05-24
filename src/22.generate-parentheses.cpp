@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 
@@ -57,7 +56,11 @@ TEST(Leetcode, generate_parentheses) {
     Solution s;
     {
         std::vector<std::string> exps = {
-            "((()))", "(()())", "(())()", "()(())", "()()()",
+            "((()))",
+            "(()())",
+            "(())()",
+            "()(())",
+            "()()()",
         };
         EXPECT_EQ(exps, s.generateParenthesis(3));
     }

@@ -16,9 +16,8 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-#include <time.h>
-
 #include <random>
+#include <time.h>
 #include <unordered_map>
 
 namespace {

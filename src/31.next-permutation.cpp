@@ -16,9 +16,8 @@
 // Created: 2022/01/17 14:50
 
 #include <algorithm>
-#include <gtest/gtest.h>
-
 #include <climits>
+#include <gtest/gtest.h>
 #include <vector>
 
 namespace {

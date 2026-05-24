@@ -16,7 +16,6 @@
 // Created: 2023/11/30 23:09
 
 #include <gtest/gtest.h>
-
 #include <vector>
 
 namespace {
@@ -44,7 +43,11 @@ TEST(Leetcode, pascals_triangle) {
     Solution s;
     {
         std::vector<std::vector<int>> exps = {
-            {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1},
+            {1},
+            {1, 1},
+            {1, 2, 1},
+            {1, 3, 3, 1},
+            {1, 4, 6, 4, 1},
         };
         EXPECT_EQ(exps, s.generate(5));
     }

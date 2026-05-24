@@ -15,13 +15,12 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/23 11:15
 
-#include "tree.h"
-
+#include <gtest/gtest.h>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "tree.h"
 
 namespace {
 class Solution {

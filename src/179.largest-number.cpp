@@ -17,7 +17,6 @@
 
 #include <algorithm>
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 
@@ -32,9 +31,7 @@ public:
         for (auto num : nums) {
             strs.push_back(std::to_string(num));
         }
-        std::sort(strs.begin(), strs.end(), [](auto& a, auto& b) {
-            return (a + b) > (b + a);
-        });
+        std::sort(strs.begin(), strs.end(), [](auto& a, auto& b) { return (a + b) > (b + a); });
         std::string ret;
         for (auto& str : strs) {
             ret.append(str);

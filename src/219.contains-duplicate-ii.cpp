@@ -16,7 +16,6 @@
 // Created: 2022/01/19 10:53
 
 #include <gtest/gtest.h>
-
 #include <unordered_set>
 #include <vector>
 

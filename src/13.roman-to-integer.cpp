@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <map>
 #include <string>
 
@@ -25,8 +24,19 @@ class Solution {
 public:
     int romanToInt(const std::string& s) {
         std::pair<std::string, int> pairs[] = {
-            {"M", 1000}, {"CM", 900}, {"D", 500}, {"CD", 400}, {"C", 100}, {"XC", 90}, {"L", 50},
-            {"XL", 40},  {"X", 10},   {"IX", 9},  {"V", 5},    {"IV", 4},  {"I", 1},
+            {"M", 1000},
+            {"CM", 900},
+            {"D", 500},
+            {"CD", 400},
+            {"C", 100},
+            {"XC", 90},
+            {"L", 50},
+            {"XL", 40},
+            {"X", 10},
+            {"IX", 9},
+            {"V", 5},
+            {"IV", 4},
+            {"I", 1},
         };
         int ret = 0, idx = 0;
         for (const auto& [symbol, num] : pairs) {

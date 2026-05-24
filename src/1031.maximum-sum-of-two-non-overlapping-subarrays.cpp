@@ -15,7 +15,6 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/26 01:22
 
-
 #include <gtest/gtest.h>
 
 namespace {

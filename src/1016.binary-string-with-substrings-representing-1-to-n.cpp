@@ -15,11 +15,9 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/05/11 01:12
 
-
 #include <bitset>
-#include <string>
-
 #include <gtest/gtest.h>
+#include <string>
 
 namespace {
 class Solution {

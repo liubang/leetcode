@@ -15,12 +15,11 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/11/30 23:08
 
+#include <gtest/gtest.h>
 #include <stack>
 #include <vector>
 
 #include "list.h"
-
-#include <gtest/gtest.h>
 
 using leetcode::list::ListNode;
 

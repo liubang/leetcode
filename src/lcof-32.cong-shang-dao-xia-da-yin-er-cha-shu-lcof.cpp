@@ -16,10 +16,10 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
-#include "tree.h"
 #include <queue>
 #include <vector>
+
+#include "tree.h"
 
 using leetcode::tree::TreeNode;
 

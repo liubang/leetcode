@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <unordered_map>
 
 namespace {
@@ -40,7 +39,16 @@ public:
 TEST(Leetcode, climbing_stairs) {
     Solution s;
     std::unordered_map<int, int> cases = {
-        {1, 1}, {2, 2}, {3, 3}, {4, 5}, {5, 8}, {6, 13}, {7, 21}, {8, 34}, {9, 55}, {10, 89},
+        {1, 1},
+        {2, 2},
+        {3, 3},
+        {4, 5},
+        {5, 8},
+        {6, 13},
+        {7, 21},
+        {8, 34},
+        {9, 55},
+        {10, 89},
     };
 
     for (auto& [i, j] : cases) {

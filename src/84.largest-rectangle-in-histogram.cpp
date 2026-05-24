@@ -15,9 +15,8 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2022/12/06 21:16
 
-#include <gtest/gtest.h>
-
 #include <climits>
+#include <gtest/gtest.h>
 #include <stack>
 #include <vector>
 

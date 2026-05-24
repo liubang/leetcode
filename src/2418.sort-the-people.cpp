@@ -15,13 +15,11 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/25 00:31
 
-
 #include <algorithm>
+#include <gtest/gtest.h>
 #include <string>
 #include <utility>
 #include <vector>
-
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

@@ -16,9 +16,8 @@
 // Created: 2023/05/13 00:25
 
 #include <algorithm>
-#include <vector>
-
 #include <gtest/gtest.h>
+#include <vector>
 
 namespace {
 class Solution {

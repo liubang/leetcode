@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <vector>
 
 #include "tree.h"
@@ -48,8 +47,8 @@ TEST(Leetcode, binary_tree_inordered_traversal) {
     Solution s;
     using TreeNode = leetcode::tree::TreeNode;
     {
-        TreeNode* root = new TreeNode(1, new TreeNode(2, new TreeNode(5), new TreeNode(6)),
-                                      new TreeNode(3, new TreeNode(4)));
+        TreeNode* root = new TreeNode(
+            1, new TreeNode(2, new TreeNode(5), new TreeNode(6)), new TreeNode(3, new TreeNode(4)));
         std::vector<int> exp = {5, 2, 6, 1, 4, 3};
         EXPECT_EQ(exp, s.inorderTraversal(root));
         leetcode::tree::destroy(root);

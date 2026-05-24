@@ -16,7 +16,6 @@
 // Created: 2025/07/15 10:31
 
 #include <gtest/gtest.h>
-
 #include <set>
 #include <string>
 

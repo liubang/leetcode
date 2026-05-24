@@ -32,7 +32,6 @@
 // Authors: liubang (it.liubang@gmail.com)
 
 #include <gtest/gtest.h>
-
 #include <string>
 
 namespace {

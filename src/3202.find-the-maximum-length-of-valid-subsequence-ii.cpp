@@ -16,7 +16,6 @@
 // Created: 2025/07/18 01:10
 
 #include <gtest/gtest.h>
-
 #include <unordered_map>
 #include <vector>
 

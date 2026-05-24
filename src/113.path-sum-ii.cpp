@@ -15,11 +15,11 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/15 17:47
 
-#include "tree.h"
+#include <gtest/gtest.h>
 #include <memory>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "tree.h"
 
 using TreeNode = leetcode::tree::TreeNode;
 

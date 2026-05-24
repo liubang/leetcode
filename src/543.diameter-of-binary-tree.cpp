@@ -15,10 +15,10 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2022/01/17 14:50
 
+#include <functional>
 #include <gtest/gtest.h>
 
 #include "tree.h"
-#include <functional>
 
 namespace {
 class Solution {

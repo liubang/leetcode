@@ -15,13 +15,12 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/25 00:04
 
-
-#include "list.h"
 #include <climits>
+#include <gtest/gtest.h>
 #include <memory>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "list.h"
 
 using leetcode::list::create;
 using leetcode::list::destroy;

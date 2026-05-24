@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <queue>
 #include <vector>
 
@@ -59,7 +58,8 @@ TEST(Leetcode, binary_tree_right_side_view) {
     using TreeNode = leetcode::tree::TreeNode;
     Solution s;
     {
-        TreeNode* root = new TreeNode(1, new TreeNode(2, nullptr, new TreeNode(5)),
+        TreeNode* root = new TreeNode(1,
+                                      new TreeNode(2, nullptr, new TreeNode(5)),
                                       new TreeNode(3, nullptr, new TreeNode(4)));
 
         std::vector<int> exp = {1, 3, 4};

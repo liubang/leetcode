@@ -16,7 +16,6 @@
 // Created: 2023/11/30 23:09
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 

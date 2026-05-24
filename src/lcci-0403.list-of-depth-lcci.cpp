@@ -15,12 +15,12 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/15 17:48
 
-#include "list.h"
-#include "tree.h"
+#include <gtest/gtest.h>
 #include <memory>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "list.h"
+#include "tree.h"
 
 using leetcode::list::ListNode;
 using leetcode::tree::TreeNode;

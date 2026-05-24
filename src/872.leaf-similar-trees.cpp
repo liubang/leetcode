@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 
@@ -70,8 +69,21 @@ TEST(Leetcode, leaf_similar_trees) {
     {
         auto root1 =
             leetcode::tree::create({"3", "5", "1", "6", "2", "9", "8", "null", "null", "7", "4"});
-        auto root2 = leetcode::tree::create({"3", "5", "1", "6", "7", "4", "2", "null", "null",
-                                             "null", "null", "null", "null", "9", "8"});
+        auto root2 = leetcode::tree::create({"3",
+                                             "5",
+                                             "1",
+                                             "6",
+                                             "7",
+                                             "4",
+                                             "2",
+                                             "null",
+                                             "null",
+                                             "null",
+                                             "null",
+                                             "null",
+                                             "null",
+                                             "9",
+                                             "8"});
         EXPECT_TRUE(s.leafSimilar(root1, root2));
         leetcode::tree::destroy(root1);
         leetcode::tree::destroy(root2);

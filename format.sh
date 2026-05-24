@@ -1,6 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-# Copyright (c) 2025 The Authors. All rights reserved.
+# Copyright (c) 2023 The Authors. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,15 +15,17 @@
 # limitations under the License.
 
 # Authors: liubang (it.liubang@gmail.com)
+# Created: 2023/09/22 00:45
 
-CLANG_FORMAT='clang-format -i'
+set -euo pipefail
+
+CLANG_FORMAT='clang-format'
 
 dirs=('include' 'src')
 
 for dir in "${dirs[@]}"; do
-	find "${dir}" -regex '.*\(\.cc\|\.h|\.cpp\)$' | while read file; do
-		cmd="${CLANG_FORMAT} ${file}"
-		echo ${cmd}
-		eval ${cmd}
-	done
+    find "${dir}" -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp' \) | while read -r file; do
+        echo "formatting: ${file}"
+        "${CLANG_FORMAT}" -i "${file}"
+    done
 done

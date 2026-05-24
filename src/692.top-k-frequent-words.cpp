@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <queue>
 #include <string>
 #include <unordered_map>
@@ -38,7 +37,8 @@ public:
             return p1.second > p2.second;
         };
 
-        std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>,
+        std::priority_queue<std::pair<std::string, int>,
+                            std::vector<std::pair<std::string, int>>,
                             decltype(my_compare)>
             queue(my_compare);
 

@@ -15,9 +15,8 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2022/01/17 14:50
 
-#include <gtest/gtest.h>
-
 #include <climits>
+#include <gtest/gtest.h>
 #include <string>
 
 namespace {

@@ -15,9 +15,8 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2024/10/07 11:41
 
-#include <gtest/gtest.h>
-
 #include <algorithm>
+#include <gtest/gtest.h>
 #include <string>
 #include <unordered_map>
 #include <vector>

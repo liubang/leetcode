@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <map>
 #include <string>
 #include <vector>
@@ -46,8 +45,13 @@ TEST(Leetcode, remove_k_digits) {
     Solution s;
     // num -> exp, k = vector.idx + 1
     std::vector<std::pair<std::string, std::string>> cases = {
-        {"1432219", "132219"}, {"1432219", "12219"}, {"1432219", "1219"}, {"1432219", "119"},
-        {"1432219", "11"},     {"1432219", "1"},     {"1432219", "0"},
+        {"1432219", "132219"},
+        {"1432219", "12219"},
+        {"1432219", "1219"},
+        {"1432219", "119"},
+        {"1432219", "11"},
+        {"1432219", "1"},
+        {"1432219", "0"},
     };
     int i = 1;
     for (const auto& [num, exp] : cases) {

@@ -15,8 +15,9 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/03/28 00:47
 
-#include "list.h"
 #include <gtest/gtest.h>
+
+#include "list.h"
 
 using leetcode::list::ListNode;
 

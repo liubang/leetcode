@@ -15,10 +15,9 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/04/16 21:40
 
+#include <gtest/gtest.h>
 #include <numeric>
 #include <vector>
-
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

@@ -15,10 +15,9 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/05/06 00:48
 
+#include <gtest/gtest.h>
 #include <unordered_map>
 #include <vector>
-
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

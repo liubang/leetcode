@@ -15,12 +15,10 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2023/06/02 01:06
 
-
+#include <gtest/gtest.h>
 #include <string>
 #include <unordered_set>
 #include <vector>
-
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

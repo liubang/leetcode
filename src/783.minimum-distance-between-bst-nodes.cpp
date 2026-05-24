@@ -15,9 +15,8 @@
 // Authors: liubang (it.liubang@gmail.com)
 // Created: 2022/01/17 14:50
 
-#include <gtest/gtest.h>
-
 #include <climits>
+#include <gtest/gtest.h>
 #include <string>
 #include <vector>
 
@@ -52,7 +51,14 @@ TEST(Leetcode, minimum_distance_between_bst_nodes) {
     Solution s;
     {
         std::vector<std::string> nodes = {
-            "27", "null", "34", "null", "58", "50", "null", "44",
+            "27",
+            "null",
+            "34",
+            "null",
+            "58",
+            "50",
+            "null",
+            "44",
         };
         auto root = leetcode::tree::create(nodes);
         int ret = s.minDiffInBST(root);

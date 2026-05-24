@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <unordered_map>
 #include <vector>
 
@@ -74,8 +73,17 @@ TEST(Leetcode, nge_tou_zi_de_dian_shu) {
     }
 
     {
-        std::vector<double> exp = {0.02778, 0.05556, 0.08333, 0.11111, 0.13889, 0.16667,
-                                   0.13889, 0.11111, 0.08333, 0.05556, 0.02778};
+        std::vector<double> exp = {0.02778,
+                                   0.05556,
+                                   0.08333,
+                                   0.11111,
+                                   0.13889,
+                                   0.16667,
+                                   0.13889,
+                                   0.11111,
+                                   0.08333,
+                                   0.05556,
+                                   0.02778};
         auto ret = s.dicesProbability(2);
         EXPECT_EQ(exp.size(), ret.size());
         for (int i = 0; i < exp.size(); ++i) {

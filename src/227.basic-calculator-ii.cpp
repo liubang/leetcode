@@ -16,7 +16,6 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
-
 #include <numeric>
 #include <string>
 #include <vector>
@@ -34,18 +33,18 @@ public:
             }
             if ((!std::isdigit(s[i]) && s[i] != ' ') || i == len - 1) {
                 switch (sign) {
-                case '+':
-                    vec.push_back(num);
-                    break;
-                case '-':
-                    vec.push_back(-num);
-                    break;
-                case '*':
-                    vec.back() *= num;
-                    break;
-                case '/':
-                    vec.back() /= num;
-                    break;
+                    case '+':
+                        vec.push_back(num);
+                        break;
+                    case '-':
+                        vec.push_back(-num);
+                        break;
+                    case '*':
+                        vec.back() *= num;
+                        break;
+                    case '/':
+                        vec.back() /= num;
+                        break;
                 }
                 num = 0;
                 sign = s[i];

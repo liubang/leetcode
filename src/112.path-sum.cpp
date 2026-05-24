@@ -16,7 +16,6 @@
 // Created: 2023/11/30 23:09
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 
@@ -45,8 +44,8 @@ private:
 TEST(Leetcode, path_sum) {
     Solution s;
     {
-        std::vector<std::string> nodes = {"5", "4", "8",    "11",   "null", "13", "4",
-                                          "7", "2", "null", "null", "null", "1"};
+        std::vector<std::string> nodes = {
+            "5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"};
         auto root = leetcode::tree::create(nodes);
         EXPECT_TRUE(s.hasPathSum(root, 22));
         EXPECT_FALSE(s.hasPathSum(root, 11));

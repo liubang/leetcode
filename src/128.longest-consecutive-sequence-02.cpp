@@ -16,7 +16,6 @@
 // Created: 2024/10/07 12:13
 
 #include <gtest/gtest.h>
-
 #include <set>
 #include <vector>
 

@@ -16,9 +16,8 @@
 // Created: 2023/04/17 21:01
 
 #include <climits>
-#include <vector>
-
 #include <gtest/gtest.h>
+#include <vector>
 
 namespace {
 class Solution {

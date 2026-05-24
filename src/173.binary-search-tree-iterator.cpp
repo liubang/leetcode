@@ -16,9 +16,9 @@
 // Created: 2022/01/17 14:50
 
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "tree.h"
-#include <vector>
 
 using leetcode::tree::TreeNode;
 
