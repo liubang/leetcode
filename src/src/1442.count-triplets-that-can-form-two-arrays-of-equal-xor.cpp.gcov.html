@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2026-05-12 16:09:00</td>
+            <td class="headerValue">2026-05-24 09:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -78,44 +78,43 @@
 <span id="L16"><span class="lineNum">      16</span>              : // Created: 2022/01/17 14:50</span>
 <span id="L17"><span class="lineNum">      17</span>              : </span>
 <span id="L18"><span class="lineNum">      18</span>              : #include &lt;gtest/gtest.h&gt;</span>
-<span id="L19"><span class="lineNum">      19</span>              : </span>
-<span id="L20"><span class="lineNum">      20</span>              : #include &lt;vector&gt;</span>
-<span id="L21"><span class="lineNum">      21</span>              : </span>
-<span id="L22"><span class="lineNum">      22</span>              : namespace {</span>
-<span id="L23"><span class="lineNum">      23</span>              : class Solution {</span>
-<span id="L24"><span class="lineNum">      24</span>              : public:</span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">           5 :     int countTriplets(const std::vector&lt;int&gt;&amp; nums) {</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           5 :         std::vector&lt;int&gt; dp;</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           5 :         int tmp = 0;</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          31 :         for (auto num : nums) {</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          26 :             tmp ^= num;</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">          26 :             dp.push_back(tmp);</span></span>
-<span id="L31"><span class="lineNum">      31</span>              :         }</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           5 :         int size = nums.size(), ret = 0;</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          26 :         for (int i = 0; i &lt; size - 1; ++i) {</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          88 :             for (int k = i + 1; k &lt; size; ++k) {</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         248 :                 for (int j = i + 1; j &lt;= k; ++j) {</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">         181 :                     if (i == 0 &amp;&amp; (dp[j - 1] == (dp[k] ^ dp[j - 1]))) {</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          11 :                         ret++;</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">         170 :                     } else if (i &gt; 0 &amp;&amp; ((dp[j - 1] ^ dp[i - 1]) == (dp[k] ^ dp[j - 1]))) {</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          14 :                         ret++;</span></span>
-<span id="L40"><span class="lineNum">      40</span>              :                     }</span>
-<span id="L41"><span class="lineNum">      41</span>              :                 }</span>
-<span id="L42"><span class="lineNum">      42</span>              :             }</span>
-<span id="L43"><span class="lineNum">      43</span>              :         }</span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           5 :         return ret;</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           5 :     }</span></span>
-<span id="L46"><span class="lineNum">      46</span>              : };</span>
-<span id="L47"><span class="lineNum">      47</span>              : } // namespace</span>
-<span id="L48"><span class="lineNum">      48</span>              : </span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           4 : TEST(Leetcode, count_triplets_that_can_form_two_arrays_of_equal_xor) {</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :     EXPECT_EQ(4, s.countTriplets({2, 3, 1, 6, 7}));</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :     EXPECT_EQ(10, s.countTriplets({1, 1, 1, 1, 1}));</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :     EXPECT_EQ(0, s.countTriplets({2, 3}));</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :     EXPECT_EQ(3, s.countTriplets({1, 3, 5, 7, 9}));</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :     EXPECT_EQ(8, s.countTriplets({7, 11, 12, 9, 5, 2, 7, 17, 22}));</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           1 : }</span></span>
+<span id="L19"><span class="lineNum">      19</span>              : #include &lt;vector&gt;</span>
+<span id="L20"><span class="lineNum">      20</span>              : </span>
+<span id="L21"><span class="lineNum">      21</span>              : namespace {</span>
+<span id="L22"><span class="lineNum">      22</span>              : class Solution {</span>
+<span id="L23"><span class="lineNum">      23</span>              : public:</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">           5 :     int countTriplets(const std::vector&lt;int&gt;&amp; nums) {</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           5 :         std::vector&lt;int&gt; dp;</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           5 :         int tmp = 0;</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">          31 :         for (auto num : nums) {</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          26 :             tmp ^= num;</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          26 :             dp.push_back(tmp);</span></span>
+<span id="L30"><span class="lineNum">      30</span>              :         }</span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           5 :         int size = nums.size(), ret = 0;</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          26 :         for (int i = 0; i &lt; size - 1; ++i) {</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          88 :             for (int k = i + 1; k &lt; size; ++k) {</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">         248 :                 for (int j = i + 1; j &lt;= k; ++j) {</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         181 :                     if (i == 0 &amp;&amp; (dp[j - 1] == (dp[k] ^ dp[j - 1]))) {</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          11 :                         ret++;</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         170 :                     } else if (i &gt; 0 &amp;&amp; ((dp[j - 1] ^ dp[i - 1]) == (dp[k] ^ dp[j - 1]))) {</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          14 :                         ret++;</span></span>
+<span id="L39"><span class="lineNum">      39</span>              :                     }</span>
+<span id="L40"><span class="lineNum">      40</span>              :                 }</span>
+<span id="L41"><span class="lineNum">      41</span>              :             }</span>
+<span id="L42"><span class="lineNum">      42</span>              :         }</span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           5 :         return ret;</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           5 :     }</span></span>
+<span id="L45"><span class="lineNum">      45</span>              : };</span>
+<span id="L46"><span class="lineNum">      46</span>              : } // namespace</span>
+<span id="L47"><span class="lineNum">      47</span>              : </span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           4 : TEST(Leetcode, count_triplets_that_can_form_two_arrays_of_equal_xor) {</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :     EXPECT_EQ(4, s.countTriplets({2, 3, 1, 6, 7}));</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :     EXPECT_EQ(10, s.countTriplets({1, 1, 1, 1, 1}));</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :     EXPECT_EQ(0, s.countTriplets({2, 3}));</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :     EXPECT_EQ(3, s.countTriplets({1, 3, 5, 7, 9}));</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :     EXPECT_EQ(8, s.countTriplets({7, 11, 12, 9, 5, 2, 7, 17, 22}));</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 : }</span></span>
         </pre>
               </td>
             </tr>

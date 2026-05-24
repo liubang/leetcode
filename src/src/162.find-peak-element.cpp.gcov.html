@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2026-05-12 16:09:00</td>
+            <td class="headerValue">2026-05-24 09:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -78,34 +78,33 @@
 <span id="L16"><span class="lineNum">      16</span>              : // Created: 2022/01/17 14:50</span>
 <span id="L17"><span class="lineNum">      17</span>              : </span>
 <span id="L18"><span class="lineNum">      18</span>              : #include &lt;gtest/gtest.h&gt;</span>
-<span id="L19"><span class="lineNum">      19</span>              : </span>
-<span id="L20"><span class="lineNum">      20</span>              : #include &lt;vector&gt;</span>
-<span id="L21"><span class="lineNum">      21</span>              : </span>
-<span id="L22"><span class="lineNum">      22</span>              : namespace {</span>
-<span id="L23"><span class="lineNum">      23</span>              : class Solution {</span>
-<span id="L24"><span class="lineNum">      24</span>              : public:</span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">           4 :     int findPeakElement(const std::vector&lt;int&gt;&amp; nums) {</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           4 :         int s = 0, e = nums.size() - 1;</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           9 :         while (s &lt; e) {</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           5 :             int m = (s + e) / 2;</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           5 :             if (nums[m] &gt; nums[m + 1]) {</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           2 :                 e = m;</span></span>
-<span id="L31"><span class="lineNum">      31</span>              :             } else {</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           3 :                 s = m + 1;</span></span>
-<span id="L33"><span class="lineNum">      33</span>              :             }</span>
-<span id="L34"><span class="lineNum">      34</span>              :         }</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           4 :         return s;</span></span>
-<span id="L36"><span class="lineNum">      36</span>              :     }</span>
-<span id="L37"><span class="lineNum">      37</span>              : };</span>
-<span id="L38"><span class="lineNum">      38</span>              : } // namespace</span>
-<span id="L39"><span class="lineNum">      39</span>              : </span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           4 : TEST(Leetcode, find_peak_element) {</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :     EXPECT_EQ(2, s.findPeakElement({1, 2, 3, 1}));</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.findPeakElement({1, 2, 1}));</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           1 :     EXPECT_EQ(0, s.findPeakElement({1}));</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.findPeakElement({1, 2}));</span></span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">           1 : }</span></span>
+<span id="L19"><span class="lineNum">      19</span>              : #include &lt;vector&gt;</span>
+<span id="L20"><span class="lineNum">      20</span>              : </span>
+<span id="L21"><span class="lineNum">      21</span>              : namespace {</span>
+<span id="L22"><span class="lineNum">      22</span>              : class Solution {</span>
+<span id="L23"><span class="lineNum">      23</span>              : public:</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">           4 :     int findPeakElement(const std::vector&lt;int&gt;&amp; nums) {</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           4 :         int s = 0, e = nums.size() - 1;</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           9 :         while (s &lt; e) {</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           5 :             int m = (s + e) / 2;</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           5 :             if (nums[m] &gt; nums[m + 1]) {</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           2 :                 e = m;</span></span>
+<span id="L30"><span class="lineNum">      30</span>              :             } else {</span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           3 :                 s = m + 1;</span></span>
+<span id="L32"><span class="lineNum">      32</span>              :             }</span>
+<span id="L33"><span class="lineNum">      33</span>              :         }</span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           4 :         return s;</span></span>
+<span id="L35"><span class="lineNum">      35</span>              :     }</span>
+<span id="L36"><span class="lineNum">      36</span>              : };</span>
+<span id="L37"><span class="lineNum">      37</span>              : } // namespace</span>
+<span id="L38"><span class="lineNum">      38</span>              : </span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           4 : TEST(Leetcode, find_peak_element) {</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           1 :     Solution s;</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">           1 :     EXPECT_EQ(2, s.findPeakElement({1, 2, 3, 1}));</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.findPeakElement({1, 2, 1}));</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :     EXPECT_EQ(0, s.findPeakElement({1}));</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           1 :     EXPECT_EQ(1, s.findPeakElement({1, 2}));</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           1 : }</span></span>
         </pre>
               </td>
             </tr>
